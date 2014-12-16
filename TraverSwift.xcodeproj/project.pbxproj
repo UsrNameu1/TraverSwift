@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1447E9381A40925D00127AAD /* TraverSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1447E9371A40925D00127AAD /* TraverSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1447E93E1A40925D00127AAD /* TraverSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1447E9321A40925D00127AAD /* TraverSwift.framework */; };
-		1447E9451A40925D00127AAD /* TraverSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447E9441A40925D00127AAD /* TraverSwiftTests.swift */; };
+		1447E9501A40955E00127AAD /* SequenceTypeTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447E94F1A40955E00127AAD /* SequenceTypeTips.swift */; };
+		1447E9531A40988D00127AAD /* SequenceTypeTipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,9 @@
 		1447E9371A40925D00127AAD /* TraverSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraverSwift.h; sourceTree = "<group>"; };
 		1447E93D1A40925D00127AAD /* TraverSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraverSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1447E9431A40925D00127AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1447E9441A40925D00127AAD /* TraverSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraverSwiftTests.swift; sourceTree = "<group>"; };
+		1447E94F1A40955E00127AAD /* SequenceTypeTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTips.swift; sourceTree = "<group>"; };
+		1447E9511A40988C00127AAD /* TraverSwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TraverSwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTipsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +74,7 @@
 		1447E9341A40925D00127AAD /* TraverSwift */ = {
 			isa = PBXGroup;
 			children = (
-				1447E9371A40925D00127AAD /* TraverSwift.h */,
+				1447E94E1A4094B900127AAD /* Source */,
 				1447E9351A40925D00127AAD /* Supporting Files */,
 			);
 			path = TraverSwift;
@@ -88,7 +91,7 @@
 		1447E9411A40925D00127AAD /* TraverSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				1447E9441A40925D00127AAD /* TraverSwiftTests.swift */,
+				1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */,
 				1447E9421A40925D00127AAD /* Supporting Files */,
 			);
 			path = TraverSwiftTests;
@@ -97,9 +100,19 @@
 		1447E9421A40925D00127AAD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1447E9511A40988C00127AAD /* TraverSwiftTests-Bridging-Header.h */,
 				1447E9431A40925D00127AAD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1447E94E1A4094B900127AAD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1447E9371A40925D00127AAD /* TraverSwift.h */,
+				1447E94F1A40955E00127AAD /* SequenceTypeTips.swift */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1447E9501A40955E00127AAD /* SequenceTypeTips.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1447E9451A40925D00127AAD /* TraverSwiftTests.swift in Sources */,
+				1447E9531A40988D00127AAD /* SequenceTypeTipsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +333,7 @@
 		1447E9491A40925D00127AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -328,12 +343,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1447E94A1A40925D00127AAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -349,6 +366,7 @@
 		1447E94C1A40925D00127AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -360,12 +378,15 @@
 				INFOPLIST_FILE = TraverSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TraverSwiftTests/TraverSwiftTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1447E94D1A40925D00127AAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -373,6 +394,7 @@
 				INFOPLIST_FILE = TraverSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TraverSwiftTests/TraverSwiftTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
