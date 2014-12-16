@@ -1,5 +1,5 @@
 //
-//  SequenceTypeTips.swift
+//  ArrayTips.swift
 //  TraverSwift
 //
 //  Created by adachi yuichi on 2014/12/17.
@@ -25,27 +25,23 @@
 
 
 /**
-A Bool indicating whether the predicate cond holds for some element in seq
+A Bool indicating the existance for some element in arr
 
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
+:param: arr    array of optional type
 
-:returns: whether cond holds for some element in seq
+:returns: the existance for some element in arr
 */
-public func any<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, false) { acc, elem in acc || cond(elem) }
+public func existsAny<T>(arr: [T?]) -> Bool {
+    return any(arr) { a in a != nil }
 }
 
 /**
-A Bool indicating whether the predicate cond holds for all element in seq
+A Bool indicating the existance for all element in arr
 
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
+:param: arr    array of optional type
 
-:returns: whether cond holds for all element in seq
+:returns: the existance for all element in arr
 */
-public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, true) { acc, elem in acc && cond(elem) }
+public func existsAll<T>(arr: [T?]) -> Bool {
+    return all(arr) { a in a != nil }
 }
-
-

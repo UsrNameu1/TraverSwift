@@ -39,4 +39,5 @@ class SequenceTypeTipsTests: XCTestCase {
         let result = all (seq) { a in a > 0 }
         XCTAssert(result, "All of the elements are larger than 0")
     }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  SequenceTypeTips.swift
+//  ArrayTipsTests.swift
 //  TraverSwift
 //
 //  Created by adachi yuichi on 2014/12/17.
@@ -23,29 +23,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+import XCTest
+import TraverSwift
 
-/**
-A Bool indicating whether the predicate cond holds for some element in seq
-
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
-
-:returns: whether cond holds for some element in seq
-*/
-public func any<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, false) { acc, elem in acc || cond(elem) }
+class ArrayTipsTests: XCTestCase {
+    
+    func testExistsAnyFunction() {
+        let arr = ["1e3","123","rf3","rf3"].map{ str in str.toInt() }
+        let result = existsAny(arr)
+        XCTAssert(result, "One of the elements can convert to Int")
+    }
+    
+    func testExistsAllFunction() {
+        let arr = ["13","123","3","312"].map{ str in str.toInt() }
+        let result = existsAll(arr)
+        XCTAssert(result, "All of the elements can convert to Int")
+    }
+    
 }
-
-/**
-A Bool indicating whether the predicate cond holds for all element in seq
-
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
-
-:returns: whether cond holds for all element in seq
-*/
-public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, true) { acc, elem in acc && cond(elem) }
-}
-
-
