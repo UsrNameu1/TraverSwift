@@ -1,6 +1,7 @@
 language: objective-c
 before_script:
-        - brew update && brew upgrade xctool
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
 xcode_project: TraverSwift.xcodeproj
 xcode_scheme: TraverSwiftTests
 xcode_sdk: iphonesimulator
