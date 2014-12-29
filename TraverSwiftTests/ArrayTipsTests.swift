@@ -41,9 +41,13 @@ class ArrayTipsTests: XCTestCase {
     }
     
     func testCastForTypeFunction() {
-        let strs = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
-        let result = cast(strs, NSString.self)
-        XCTAssert(result == nil, "Cast fail for compounded array")
+        let objs = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+        let failResult = cast(objs, NSString.self)
+        XCTAssert(failResult == nil, "Cast fail for compounded array")
+        
+        let strs: [NSObject] = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
+        let successResult = cast(strs, NSString.self)
+        XCTAssert(successResult != nil, "Cast succeeds for pure array")
     }
     
 }
