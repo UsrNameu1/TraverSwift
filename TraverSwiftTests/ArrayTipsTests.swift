@@ -40,4 +40,10 @@ class ArrayTipsTests: XCTestCase {
         XCTAssert(result, "All of the elements can convert to Int")
     }
     
+    func testCastForTypeFunction() {
+        let strs = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+        let result = cast(strs, NSString.self)
+        XCTAssert(result == nil, "Cast fail for compounded array")
+    }
+    
 }
