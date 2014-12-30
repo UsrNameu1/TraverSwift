@@ -40,4 +40,11 @@ class SequenceTypeTipsTests: XCTestCase {
         XCTAssert(result, "All of the elements are larger than 0")
     }
     
+    func testEqualOperator() {
+        let seq1 = SequenceOf([1,2,3,4,5,6])
+        let seq2 = SequenceOf([1,2,3,4,5,6])
+        let result = seq1 == seq2
+        XCTAssert(result, "All elements equal in the same order")
+    }
+    
 }

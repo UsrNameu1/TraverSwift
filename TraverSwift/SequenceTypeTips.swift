@@ -48,4 +48,16 @@ public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> B
     return reduce(seq, true) { acc, elem in acc && cond(elem) }
 }
 
+/**
+Equal operator for Sequence type
+
+:param: lhs left Sequence Type
+:param: rhs right Sequence Type
+
+:returns: whether lhs & rhs contains same elements in the same order
+*/
+public func == <S1 : SequenceType, S2 : SequenceType where S1.Generator.Element == S2.Generator.Element, S1.Generator.Element : Equatable>(lhs: S1, rhs: S2) -> Bool {
+    return equal(lhs, rhs)
+}
+
 
