@@ -47,4 +47,10 @@ class SequenceTypeTipsTests: XCTestCase {
         XCTAssert(result, "All elements equal in the same order")
     }
     
+    func testSumFunction() {
+        let seq = SequenceOf([1,2,3,4,5,6])
+        let result = sum(seq)
+        XCTAssert(result == 21, "Sum of all elements can be computed properly")
+    }
+    
 }

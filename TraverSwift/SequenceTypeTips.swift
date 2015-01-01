@@ -60,4 +60,14 @@ public func == <S1 : SequenceType, S2 : SequenceType where S1.Generator.Element 
     return equal(lhs, rhs)
 }
 
+/**
+Sum for Sequence type of IntegerArithmeticType Elements
+
+:param: seq Sequence type of IntegerArithmeticType Elements
+
+:returns: sum of elements
+*/
+public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
+    return reduce(seq, 0 as S.Generator.Element) { acc, elem in acc + elem }
+}
 
