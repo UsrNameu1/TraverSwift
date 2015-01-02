@@ -53,4 +53,9 @@ class SequenceTypeTipsTests: XCTestCase {
         XCTAssert(result == 21, "Sum of all elements can be computed properly")
     }
     
+    func testProductFunction() {
+        let seq = SequenceOf([1,2,3,4,5,6])
+        let result = product(seq)
+        XCTAssert(result == 720, "Product of all elements can be computed properly")
+    }
 }

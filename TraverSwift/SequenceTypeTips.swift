@@ -71,3 +71,14 @@ public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType
     return reduce(seq, 0 as S.Generator.Element) { acc, elem in acc + elem }
 }
 
+/**
+Product for Sequence type of IntegerArithmeticType Elements
+
+:param: seq Sequence type of IntegerArithmeticType Elements
+
+:returns: product of elements
+*/
+public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
+    return reduce(seq, 1 as S.Generator.Element) { acc, elem in acc * elem }
+}
+
