@@ -13,6 +13,8 @@
 		1447E9531A40988D00127AAD /* SequenceTypeTipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */; };
 		14CBA1A41A40B8C00050641D /* ArrayTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA1A31A40B8C00050641D /* ArrayTips.swift */; };
 		14CBA1A61A40B8F20050641D /* ArrayTipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA1A51A40B8F20050641D /* ArrayTipsTests.swift */; };
+		F7BF29DA1A57DA550084C964 /* CollectionTypeTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF29D91A57DA550084C964 /* CollectionTypeTips.swift */; };
+		F7BF29DD1A5836E30084C964 /* CollectionTypeTipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF29DC1A5836E30084C964 /* CollectionTypeTipsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTipsTests.swift; sourceTree = "<group>"; };
 		14CBA1A31A40B8C00050641D /* ArrayTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTips.swift; sourceTree = "<group>"; };
 		14CBA1A51A40B8F20050641D /* ArrayTipsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTipsTests.swift; sourceTree = "<group>"; };
+		F7BF29D91A57DA550084C964 /* CollectionTypeTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeTips.swift; sourceTree = "<group>"; };
+		F7BF29DC1A5836E30084C964 /* CollectionTypeTipsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeTipsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				1447E9521A40988D00127AAD /* SequenceTypeTipsTests.swift */,
 				14CBA1A51A40B8F20050641D /* ArrayTipsTests.swift */,
+				F7BF29DC1A5836E30084C964 /* CollectionTypeTipsTests.swift */,
 				1447E9421A40925D00127AAD /* Supporting Files */,
 			);
 			path = TraverSwiftTests;
@@ -117,6 +122,7 @@
 				1447E9371A40925D00127AAD /* TraverSwift.h */,
 				1447E94F1A40955E00127AAD /* SequenceTypeTips.swift */,
 				14CBA1A31A40B8C00050641D /* ArrayTips.swift */,
+				F7BF29D91A57DA550084C964 /* CollectionTypeTips.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 			files = (
 				1447E9501A40955E00127AAD /* SequenceTypeTips.swift in Sources */,
 				14CBA1A41A40B8C00050641D /* ArrayTips.swift in Sources */,
+				F7BF29DA1A57DA550084C964 /* CollectionTypeTips.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1447E9531A40988D00127AAD /* SequenceTypeTipsTests.swift in Sources */,
+				F7BF29DD1A5836E30084C964 /* CollectionTypeTipsTests.swift in Sources */,
 				14CBA1A61A40B8F20050641D /* ArrayTipsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
