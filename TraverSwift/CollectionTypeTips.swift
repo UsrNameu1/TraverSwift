@@ -25,13 +25,25 @@
 
 
 /**
-Take prefix of collection from first to idx element
+Prefix of collection from first to idx element
 
 :param: col Collection type 
-:param: idx index for taking collection
+:param: idx index for element
 
 :returns: Array of Collection Element Type
 */
 public func take<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
     return map(filter(indices(col)) { index in 0 < distance(index, idx) }) { index in col[index] }
+}
+
+/**
+Suffix of collection from idx to last element
+
+:param: col Collection type
+:param: idx index for element
+
+:returns: Array of Collection Element Type
+*/
+public func drop<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(col)) { index in 0 <= distance(idx, index) }) { index in col[index] }
 }

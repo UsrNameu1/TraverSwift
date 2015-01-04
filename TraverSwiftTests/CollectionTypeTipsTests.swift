@@ -31,6 +31,12 @@ class CollectionTypeTipsTests: XCTestCase {
     func testTakeFunction() {
         let col = [1,2,3,4,5,6,7]
         let result = take(col, 3)
-        XCTAssert(result == [1, 2, 3], "Take first elements properly")
+        XCTAssert(result == [1, 2, 3], "get prefix elements properly")
+    }
+    
+    func testDropFunction() {
+        let col = [1,2,3,4,5,6,7]
+        let result = drop(col, 3)
+        XCTAssert(result == [4, 5, 6, 7], "get suffix elements properly")
     }
 }
