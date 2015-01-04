@@ -25,13 +25,13 @@
 
 
 /**
-Take starting idx element for Collection type
+Take prefix of collection from first to idx element
 
 :param: col Collection type 
 :param: idx index for taking collection
 
 :returns: Array of Collection Element Type
 */
-public func take<C: CollectionType>(col: C, idx: Int) -> [C.Generator.Element] {
-    return map(filter(enumerate(col)) { index, elem in index < idx }) { index, elem in elem }
+public func take<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(col)) { index in 0 < distance(index, idx) }) { index in col[index] }
 }
