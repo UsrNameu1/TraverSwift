@@ -32,8 +32,8 @@ A Bool indicating whether the predicate cond holds for some element in seq
 
 :returns: whether cond holds for some element in seq
 */
-public func any<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, false) { acc, elem in acc || cond(elem) }
+public func any<S: SequenceType>(seq: S, cond: S.Generator.Element -> BooleanType) -> Bool {
+    return or(map(seq) { elem in cond(elem).boolValue })
 }
 
 /**
@@ -44,8 +44,8 @@ A Bool indicating whether the predicate cond holds for all element in seq
 
 :returns: whether cond holds for all element in seq
 */
-public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> Bool {
-    return reduce(seq, true) { acc, elem in acc && cond(elem) }
+public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> BooleanType) -> Bool {
+    return and(map(seq) { elem in cond(elem).boolValue })
 }
 
 /**
@@ -80,5 +80,27 @@ Product for Sequence type of IntegerArithmeticType Elements
 */
 public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
     return reduce(seq, 1 as S.Generator.Element) { acc, elem in acc * elem }
+}
+
+/**
+Conjunction of a BooleanType sequence
+
+:param: seq BooleanType sequence
+
+:returns: whether all elements are true
+*/
+public func and<S: SequenceType where S.Generator.Element: BooleanType>(seq: S) -> Bool {
+    return reduce(seq, true) { acc, elem in elem && acc }
+}
+
+/**
+Disjunction of a BooleanType sequence
+
+:param: seq BooleanType sequence
+
+:returns: whether at least one of the elements is true
+*/
+public func or<S: SequenceType where S.Generator.Element: BooleanType>(seq: S) -> Bool {
+    return reduce(seq, false) { acc, elem in elem || acc }
 }
 
