@@ -104,3 +104,16 @@ public func or<S: SequenceType where S.Generator.Element: BooleanType>(seq: S) -
     return reduce(seq, false) { acc, elem in elem || acc }
 }
 
+/**
+Array from intermediate to final results of reduce function
+
+:param: seq     sequence type
+:param: initial initial for reduce
+:param: combine combine function for reduce
+
+:returns: Array of reduce results
+*/
+public func scan<S: SequenceType, U>(seq: S, initial: U, combine: (U, S.Generator.Element) -> U) -> [U] {
+    let array = Array(seq)
+    return (0...array.count).map{ index in reduce(take(array, index), initial, combine) }
+}

@@ -78,4 +78,14 @@ class SequenceTypeTipsTests: XCTestCase {
         let result2 = or(seq2)
         XCTAssert(result2 == false, "returns false if all elements are false")
     }
+    
+    func testScanFunction() {
+        let seq1 = SequenceOf([4, 2, 4])
+        let result1 = scan(seq1, 64, /)
+        XCTAssert(result1 == [64, 16, 8, 2], "returns array of reduce result")
+        
+        let seq2 = SequenceOf([1,2,3])
+        let result2 = scan(seq2, 4) { x, y in 2 * x + y }
+        XCTAssert(result2 == [4, 9, 20, 43], "returns array of reduce result")
+    }
 }
