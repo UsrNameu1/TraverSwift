@@ -1,9 +1,9 @@
 //
-//  ArrayTipsTests.swift
+//  CollectionTypeTips.swift
 //  TraverSwift
 //
-//  Created by adachi yuichi on 2014/12/17.
-//  Copyright (c) 2014年 yad. All rights reserved.
+//  Created by adachi.yuichi on 2015/01/03.
+//  Copyright (c) 2015年 yad. All rights reserved.
 //
 //  The MIT License (MIT)
 //
@@ -23,31 +23,27 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import XCTest
-import TraverSwift
 
-class ArrayTipsTests: XCTestCase {
-    
-    func testExistsAnyFunction() {
-        let arr = ["1e3","123","rf3","rf3"].map{ str in str.toInt() }
-        let result = existsAny(arr)
-        XCTAssert(result, "One of the elements can convert to Int")
-    }
-    
-    func testExistsAllFunction() {
-        let arr = ["13","123","3","312"].map{ str in str.toInt() }
-        let result = existsAll(arr)
-        XCTAssert(result, "All of the elements can convert to Int")
-    }
-    
-    func testCastForTypeFunction() {
-        let objs = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
-        let failResult = cast(objs, NSString.self)
-        XCTAssert(failResult == nil, "Cast fail for compounded array")
-        
-        let strs: [NSObject] = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
-        let successResult = cast(strs, NSString.self)
-        XCTAssert(successResult != nil, "Cast succeeds for pure array")
-    }
-    
+/**
+Prefix of collection from first to idx element
+
+:param: col Collection type 
+:param: idx index for element
+
+:returns: Array of Collection Element Type
+*/
+public func take<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(col)) { index in 0 < distance(index, idx) }) { index in col[index] }
+}
+
+/**
+Suffix of collection from idx to last element
+
+:param: col Collection type
+:param: idx index for element
+
+:returns: Array of Collection Element Type
+*/
+public func drop<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(col)) { index in 0 <= distance(idx, index) }) { index in col[index] }
 }

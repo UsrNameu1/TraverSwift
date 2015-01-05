@@ -45,3 +45,16 @@ A Bool indicating the existance for all element in arr
 public func existsAll<T>(arr: [T?]) -> Bool {
     return all(arr) { a in a != nil }
 }
+
+/**
+A safe casted array for type U applied to [T]
+
+:param: arr     array of type T
+:param: forType U Type
+
+:returns: optional [U]
+*/
+public func cast<T, U>(arr: [T], forType: U.Type) -> [U]? {
+    let safeCastedArr = arr.map { val in val as? U }
+    return existsAll(safeCastedArr) ? safeCastedArr.map { val in val! } : nil
+}

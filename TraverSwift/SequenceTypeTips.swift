@@ -48,4 +48,37 @@ public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> Bool) -> B
     return reduce(seq, true) { acc, elem in acc && cond(elem) }
 }
 
+/**
+Equal operator for Sequence type
+
+:param: lhs left Sequence Type
+:param: rhs right Sequence Type
+
+:returns: whether lhs & rhs contains same elements in the same order
+*/
+public func == <S1 : SequenceType, S2 : SequenceType where S1.Generator.Element == S2.Generator.Element, S1.Generator.Element : Equatable>(lhs: S1, rhs: S2) -> Bool {
+    return equal(lhs, rhs)
+}
+
+/**
+Sum for Sequence type of IntegerArithmeticType Elements
+
+:param: seq Sequence type of IntegerArithmeticType Elements
+
+:returns: sum of elements
+*/
+public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
+    return reduce(seq, 0 as S.Generator.Element) { acc, elem in acc + elem }
+}
+
+/**
+Product for Sequence type of IntegerArithmeticType Elements
+
+:param: seq Sequence type of IntegerArithmeticType Elements
+
+:returns: product of elements
+*/
+public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
+    return reduce(seq, 1 as S.Generator.Element) { acc, elem in acc * elem }
+}
 

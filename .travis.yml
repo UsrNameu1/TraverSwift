@@ -1,6 +1,10 @@
+rvm: 2.1.3
 language: objective-c
+
 before_script:
-        - brew update && brew upgrade xctool
-xcode_project: TraverSwift.xcodeproj
-xcode_scheme: TraverSwiftTests
-xcode_sdk: iphonesimulator
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+
+script:
+  - xctool -project TraverSwift.xcodeproj -scheme TraverSwift -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -reporter pretty
+  - xcodebuild -project TraverSwift.xcodeproj -scheme TraverSwift -destination 'platform=iOS Simulator,name=iPhone 6' test | xcpretty -c && exit ${PIPESTATUS[0]}

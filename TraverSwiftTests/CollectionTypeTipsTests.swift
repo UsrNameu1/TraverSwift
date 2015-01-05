@@ -1,9 +1,9 @@
 //
-//  SequenceTypeTipsTests.swift
+//  CollectionTypeTipsTests.swift
 //  TraverSwift
 //
-//  Created by adachi yuichi on 2014/12/17.
-//  Copyright (c) 2014年 yad. All rights reserved.
+//  Created by adachi.yuichi on 2015/01/03.
+//  Copyright (c) 2015年 yad. All rights reserved.
 //
 //  The MIT License (MIT)
 //
@@ -26,36 +26,17 @@
 import XCTest
 import TraverSwift
 
-class SequenceTypeTipsTests: XCTestCase {
+class CollectionTypeTipsTests: XCTestCase {
     
-    func testAnyFunction() {
-        let seq = [1,2,3,4,5,6,7]
-        let result = any (seq) { a in a > 6 }
-        XCTAssert(result, "One of the elements is larger than 6")
+    func testTakeFunction() {
+        let col = [1,2,3,4,5,6,7]
+        let result = take(col, 3)
+        XCTAssert(result == [1, 2, 3], "get prefix elements properly")
     }
     
-    func testAllFunction() {
-        let seq = [1,2,3,4,5,6,7]
-        let result = all (seq) { a in a > 0 }
-        XCTAssert(result, "All of the elements are larger than 0")
-    }
-    
-    func testEqualOperator() {
-        let seq1 = SequenceOf([1,2,3,4,5,6])
-        let seq2 = SequenceOf([1,2,3,4,5,6])
-        let result = seq1 == seq2
-        XCTAssert(result, "All elements equal in the same order")
-    }
-    
-    func testSumFunction() {
-        let seq = SequenceOf([1,2,3,4,5,6])
-        let result = sum(seq)
-        XCTAssert(result == 21, "Sum of all elements can be computed properly")
-    }
-    
-    func testProductFunction() {
-        let seq = SequenceOf([1,2,3,4,5,6])
-        let result = product(seq)
-        XCTAssert(result == 720, "Product of all elements can be computed properly")
+    func testDropFunction() {
+        let col = [1,2,3,4,5,6,7]
+        let result = drop(col, 3)
+        XCTAssert(result == [4, 5, 6, 7], "get suffix elements properly")
     }
 }
