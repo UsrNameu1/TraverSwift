@@ -28,15 +28,56 @@ import TraverSwift
 
 class CollectionTypeTipsTests: XCTestCase {
     
+    func testFindIndexFunction() {
+        let col1 = [1,2,3,4,4,6]
+        let result1 = findIndex(col1) { elem in elem > 3 }!
+        XCTAssert(result1 == 3, "get index properly")
+        
+        let result2 = findIndex(col1) { elem in elem > 6 }
+        XCTAssert(result2 == nil, "get nil when no element satisfies cond")
+    }
+    
     func testTakeFunction() {
-        let col = [1,2,3,4,5,6,7]
-        let result = take(col, 3)
-        XCTAssert(result == [1, 2, 3], "get prefix elements properly")
+        let col1 = [1,2,3,4,5,6,7]
+        let result1 = take(col1, 3)
+        XCTAssert(result1 == [1, 2, 3], "get prefix elements properly")
+        
+        let result2 = take(col1, 7)
+        XCTAssert(result2 == [1, 2, 3, 4, 5, 6, 7], "get all prefix elements properly")
     }
     
     func testDropFunction() {
-        let col = [1,2,3,4,5,6,7]
-        let result = drop(col, 3)
-        XCTAssert(result == [4, 5, 6, 7], "get suffix elements properly")
+        let col1 = [1,2,3,4,5,6,7]
+        let result1 = drop(col1, 3)
+        XCTAssert(result1 == [4, 5, 6, 7], "get suffix elements properly")
+        
+        let result2 = drop(col1, 0)        
+        XCTAssert(result2 == [1, 2, 3, 4, 5, 6, 7], "get all suffix elements properly")
+    }
+    
+    func testTakeWhileFunction() {
+        let col1 = [1,2,3,4,1,2,3,4]
+        let result1 = takeWhile(col1) { elem in elem < 3 }
+        XCTAssert(result1 == [1, 2], "get the longest prefix elements properly")
+        
+        let col2 = [1,2,3]
+        let result2 = takeWhile(col2) { elem in elem < 9 }
+        XCTAssert(result2 == [1, 2, 3], "get the longest prefix elements properly")
+        
+        let result3 = takeWhile(col2) { elem in elem < 0 }
+        XCTAssert(result3 == [], "get the longest prefix elements properly")
+    }
+    
+    func testDropWhileFunction() {
+        let col1 = [1,2,3,4,1,2,3,4]
+        let result1 = dropWhile(col1) { elem in elem < 3 }
+        XCTAssert(result1 == [3,4,1,2,3,4], "get the remaining of takeWhile properly")
+        
+        let col2 = [1,2,3]
+        let result2 = dropWhile(col2) { elem in elem < 9 }
+        XCTAssert(result2 == [], "get the remaining of takeWhile properly")
+        
+        let result3 = dropWhile(col2) { elem in elem < 0 }
+        XCTAssert(result3 == [1, 2, 3], "get the remaining of takeWhile properly")
     }
 }
