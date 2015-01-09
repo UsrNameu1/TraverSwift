@@ -80,4 +80,11 @@ class CollectionTypeTipsTests: XCTestCase {
         let result3 = dropWhile(col2) { elem in elem < 0 }
         XCTAssert(result3 == [1, 2, 3], "get the remaining of takeWhile properly")
     }
+    
+    func testSpanFunction() {
+        let col1 = [1,2,3,4,1,2,3,4]
+        let result1 = span(col1) { elem in elem < 3 }
+        XCTAssert(result1.0 == [1, 2], "first element is the longest prefix elements")
+        XCTAssert(result1.1 == [3,4,1,2,3,4], "second element is the remeining of the longest prefix elements")
+    }
 }

@@ -84,3 +84,15 @@ public func dropWhile<C: CollectionType>(col: C, cond: C.Generator.Element -> Bo
     let index = findIndex(col) { elem in !cond(elem) } ?? col.endIndex
     return drop(col, index)
 }
+
+/**
+Tuple where first element is longest prefix of collection type satisfying the condition and second element is the remainder of the list
+
+:param: col  Collection type
+:param: cond condition for element
+
+:returns: Tuple of Array of Collection Element Type
+*/
+public func span<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
+    return (takeWhile(col, cond), dropWhile(col, cond))
+}
