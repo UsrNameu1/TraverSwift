@@ -1,5 +1,5 @@
 //
-//  ArrayTips.swift
+//  ArrayFunctionsTests.swift
 //  TraverSwift
 //
 //  Created by adachi yuichi on 2014/12/17.
@@ -23,38 +23,31 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+import XCTest
+import TraverSwift
 
-/**
-A Bool indicating the existance for some element in arr
-
-:param: arr    array of optional type
-
-:returns: the existance for some element in arr
-*/
-public func existsAny<T>(arr: [T?]) -> Bool {
-    return any(arr) { a in a != nil }
-}
-
-/**
-A Bool indicating the existance for all element in arr
-
-:param: arr    array of optional type
-
-:returns: the existance for all element in arr
-*/
-public func existsAll<T>(arr: [T?]) -> Bool {
-    return all(arr) { a in a != nil }
-}
-
-/**
-A safe casted array for type U applied to [T]
-
-:param: arr     array of type T
-:param: forType U Type
-
-:returns: optional [U]
-*/
-public func cast<T, U>(arr: [T], forType: U.Type) -> [U]? {
-    let safeCastedArr = arr.map { val in val as? U }
-    return existsAll(safeCastedArr) ? safeCastedArr.map { val in val! } : nil
+class ArrayTipsTests: XCTestCase {
+    
+    func testExistsAnyFunction() {
+        let arr = ["1e3","123","rf3","rf3"].map{ str in str.toInt() }
+        let result = existsAny(arr)
+        XCTAssert(result, "One of the elements can convert to Int")
+    }
+    
+    func testExistsAllFunction() {
+        let arr = ["13","123","3","312"].map{ str in str.toInt() }
+        let result = existsAll(arr)
+        XCTAssert(result, "All of the elements can convert to Int")
+    }
+    
+    func testCastForTypeFunction() {
+        let objs = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+        let failResult = cast(objs, NSString.self)
+        XCTAssert(failResult == nil, "Cast fail for compounded array")
+        
+        let strs: [NSObject] = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
+        let successResult = cast(strs, NSString.self)
+        XCTAssert(successResult != nil, "Cast succeeds for pure array")
+    }
+    
 }

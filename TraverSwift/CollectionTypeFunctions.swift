@@ -1,5 +1,5 @@
 //
-//  CollectionTypeTips.swift
+//  CollectionTypeFunctions.swift
 //  TraverSwift
 //
 //  Created by adachi.yuichi on 2015/01/03.

@@ -1,5 +1,5 @@
 //
-//  SequenceTypeTips.swift
+//  SequenceTypeFunctions.swift
 //  TraverSwift
 //
 //  Created by adachi yuichi on 2014/12/17.
