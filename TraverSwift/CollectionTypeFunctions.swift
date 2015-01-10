@@ -96,3 +96,16 @@ Tuple where first element is longest prefix of collection type satisfying the co
 public func span<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
     return (takeWhile(collection, condition), dropWhile(collection, condition))
 }
+
+/**
+A safe casted array for type U applied to Collection Type
+
+:param: collection Collection type (implicitly unwrapped optional)
+:param: forType    U Type
+
+:returns: optional [U]
+*/
+public func cast<C: CollectionType, U>(collection: C!, forType: U.Type) -> [U]? {
+    let castedCollection = map(collection) { val in val as? U }
+    return existsAll(castedCollection) ? castedCollection.map { val in val! } : nil
+}
