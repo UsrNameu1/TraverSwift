@@ -25,27 +25,27 @@
 
 
 /**
-A Bool indicating whether the predicate cond holds for some element in seq
+A Bool indicating whether the predicate condition holds for some element in sequence
 
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
+:param: sequence  A value of type that confirms to SequenceType protocol
+:param: condition condition for element of sequence
 
-:returns: whether cond holds for some element in seq
+:returns: whether condition holds for some element in sequence
 */
-public func any<S: SequenceType>(seq: S, cond: S.Generator.Element -> BooleanType) -> Bool {
-    return or(map(seq) { elem in cond(elem).boolValue })
+public func any<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> Bool {
+    return or(map(sequence) { elem in condition(elem).boolValue })
 }
 
 /**
-A Bool indicating whether the predicate cond holds for all element in seq
+A Bool indicating whether the predicate condition holds for all element in sequence
 
-:param: seq    A value of type that confirms to SequenceType protocol
-:param: cond   condition for element of seq
+:param: sequence  A value of type that confirms to SequenceType protocol
+:param: condition condition for element of sequence
 
-:returns: whether cond holds for all element in seq
+:returns: whether condition holds for all element in sequence
 */
-public func all<S: SequenceType>(seq: S, cond: S.Generator.Element -> BooleanType) -> Bool {
-    return and(map(seq) { elem in cond(elem).boolValue })
+public func all<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> Bool {
+    return and(map(sequence) { elem in condition(elem).boolValue })
 }
 
 /**
@@ -63,57 +63,57 @@ public func == <S1 : SequenceType, S2 : SequenceType where S1.Generator.Element 
 /**
 Sum for Sequence type of IntegerArithmeticType Elements
 
-:param: seq Sequence type of IntegerArithmeticType Elements
+:param: sequence Sequence type of IntegerArithmeticType Elements
 
 :returns: sum of elements
 */
-public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
-    return reduce(seq, 0 as S.Generator.Element) { acc, elem in acc + elem }
+public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(sequence: S) -> S.Generator.Element {
+    return reduce(sequence, 0 as S.Generator.Element) { acc, elem in acc + elem }
 }
 
 /**
 Product for Sequence type of IntegerArithmeticType Elements
 
-:param: seq Sequence type of IntegerArithmeticType Elements
+:param: sequence Sequence type of IntegerArithmeticType Elements
 
 :returns: product of elements
 */
-public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(seq: S) -> S.Generator.Element {
-    return reduce(seq, 1 as S.Generator.Element) { acc, elem in acc * elem }
+public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(sequence: S) -> S.Generator.Element {
+    return reduce(sequence, 1 as S.Generator.Element) { acc, elem in acc * elem }
 }
 
 /**
 Conjunction of a BooleanType sequence
 
-:param: seq BooleanType sequence
+:param: sequence BooleanType sequence
 
 :returns: whether all elements are true
 */
-public func and<S: SequenceType where S.Generator.Element: BooleanType>(seq: S) -> Bool {
-    return reduce(seq, true) { acc, elem in elem && acc }
+public func and<S: SequenceType where S.Generator.Element: BooleanType>(sequence: S) -> Bool {
+    return reduce(sequence, true) { acc, elem in elem && acc }
 }
 
 /**
 Disjunction of a BooleanType sequence
 
-:param: seq BooleanType sequence
+:param: sequence BooleanType sequence
 
 :returns: whether at least one of the elements is true
 */
-public func or<S: SequenceType where S.Generator.Element: BooleanType>(seq: S) -> Bool {
-    return reduce(seq, false) { acc, elem in elem || acc }
+public func or<S: SequenceType where S.Generator.Element: BooleanType>(sequence: S) -> Bool {
+    return reduce(sequence, false) { acc, elem in elem || acc }
 }
 
 /**
 Array from intermediate to final results of reduce function
 
-:param: seq     sequence type
-:param: initial initial for reduce
-:param: combine combine function for reduce
+:param: sequence sequence type
+:param: initial  initial for reduce
+:param: combine  combine function for reduce
 
 :returns: Array of reduce results
 */
-public func scan<S: SequenceType, U>(seq: S, initial: U, combine: (U, S.Generator.Element) -> U) -> [U] {
-    let array = Array(seq)
+public func scan<S: SequenceType, U>(sequence: S, initial: U, combine: (U, S.Generator.Element) -> U) -> [U] {
+    let array = Array(sequence)
     return (0...array.count).map{ index in reduce(take(array, index), initial, combine) }
 }
