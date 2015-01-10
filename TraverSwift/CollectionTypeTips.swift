@@ -23,6 +23,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+/**
+The Index of the first element in the collection type satisfying the condition
+
+:param: col  Collection type
+:param: cond condition for element
+
+:returns: The first index (Optional)
+*/
+public func findIndex<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> C.Index? {
+    return first(filter(indices(col)) { index in cond(col[index]) })
+}
 
 /**
 Prefix of collection from first to idx element
@@ -46,4 +57,42 @@ Suffix of collection from idx to last element
 */
 public func drop<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
     return map(filter(indices(col)) { index in 0 <= distance(idx, index) }) { index in col[index] }
+}
+
+/**
+Longest prefix of collection type satisfying the condition
+
+:param: col  Collection type
+:param: cond condition for element
+
+:returns: Array of Collection Element Type
+*/
+public func takeWhile<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> [C.Generator.Element] {
+    let index = findIndex(col) { elem in !cond(elem) } ?? col.endIndex
+    return take(col, index)
+}
+
+/**
+Suffix of collection type remaining after takeWhile
+
+:param: col  Collection type
+:param: cond condition for element
+
+:returns: Array of Collection Element Type
+*/
+public func dropWhile<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> [C.Generator.Element] {
+    let index = findIndex(col) { elem in !cond(elem) } ?? col.endIndex
+    return drop(col, index)
+}
+
+/**
+Tuple where first element is longest prefix of collection type satisfying the condition and second element is the remainder of the list
+
+:param: col  Collection type
+:param: cond condition for element
+
+:returns: Tuple of Array of Collection Element Type
+*/
+public func span<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
+    return (takeWhile(col, cond), dropWhile(col, cond))
 }

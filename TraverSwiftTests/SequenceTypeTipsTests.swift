@@ -58,4 +58,34 @@ class SequenceTypeTipsTests: XCTestCase {
         let result = product(seq)
         XCTAssert(result == 720, "Product of all elements can be computed properly")
     }
+    
+    func testAndFunction() {
+        let seq1 = SequenceOf([false, true, true, true])
+        let result1 = and(seq1)
+        XCTAssert(result1 == false, "returns false if at least one of the elements is false")
+        
+        let seq2 = SequenceOf([true, true, true, true])
+        let result2 = and(seq2)
+        XCTAssert(result2 == true, "returns true if all elements are true")
+    }
+    
+    func testOrFunction() {
+        let seq1 = SequenceOf([false, true, false, false])
+        let result1 = or(seq1)
+        XCTAssert(result1 == true, "returns true if at least one of the elements is true")
+        
+        let seq2 = SequenceOf([false, false, false, false])
+        let result2 = or(seq2)
+        XCTAssert(result2 == false, "returns false if all elements are false")
+    }
+    
+    func testScanFunction() {
+        let seq1 = SequenceOf([4, 2, 4])
+        let result1 = scan(seq1, 64, /)
+        XCTAssert(result1 == [64, 16, 8, 2], "returns array of reduce result")
+        
+        let seq2 = SequenceOf([1,2,3])
+        let result2 = scan(seq2, 4) { x, y in 2 * x + y }
+        XCTAssert(result2 == [4, 9, 20, 43], "returns array of reduce result")
+    }
 }
