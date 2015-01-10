@@ -25,36 +25,36 @@
 
 
 /**
-A Bool indicating the existance for some element in arr
+A Bool indicating the existance for some element in array
 
-:param: arr    array of optional type
+:param: array   Array of optional type
 
-:returns: the existance for some element in arr
+:returns: the existance for some element in array
 */
-public func existsAny<T>(arr: [T?]) -> Bool {
-    return any(arr) { a in a != nil }
+public func existsAny<T>(array: [T?]) -> Bool {
+    return any(array) { elem in elem != nil }
 }
 
 /**
-A Bool indicating the existance for all element in arr
+A Bool indicating the existance for all element in array
 
-:param: arr    array of optional type
+:param: array   Array of optional type
 
-:returns: the existance for all element in arr
+:returns: the existance for all element in array
 */
-public func existsAll<T>(arr: [T?]) -> Bool {
-    return all(arr) { a in a != nil }
+public func existsAll<T>(array: [T?]) -> Bool {
+    return all(array) { elem in elem != nil }
 }
 
 /**
 A safe casted array for type U applied to [T]
 
-:param: arr     array of type T
-:param: forType U Type
+:param: array     Array of type T
+:param: forType   U Type
 
 :returns: optional [U]
 */
-public func cast<T, U>(arr: [T], forType: U.Type) -> [U]? {
-    let safeCastedArr = arr.map { val in val as? U }
+public func cast<T, U>(array: [T], forType: U.Type) -> [U]? {
+    let safeCastedArr = array.map { val in val as? U }
     return existsAll(safeCastedArr) ? safeCastedArr.map { val in val! } : nil
 }

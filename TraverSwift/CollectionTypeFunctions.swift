@@ -26,73 +26,73 @@
 /**
 The Index of the first element in the collection type satisfying the condition
 
-:param: col  Collection type
-:param: cond condition for element
+:param: collection  Collection type
+:param: condition   condition for element
 
 :returns: The first index (Optional)
 */
-public func findIndex<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> C.Index? {
-    return first(filter(indices(col)) { index in cond(col[index]) })
+public func findIndex<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> C.Index? {
+    return first(filter(indices(collection)) { index in condition(collection[index]) })
 }
 
 /**
-Prefix of collection from first to idx element
+Prefix of collection from first to index element
 
-:param: col Collection type 
-:param: idx index for element
+:param: collection  Collection type
+:param: index       index for element
 
 :returns: Array of Collection Element Type
 */
-public func take<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
-    return map(filter(indices(col)) { index in 0 < distance(index, idx) }) { index in col[index] }
+public func take<C: CollectionType>(collection: C, index: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(collection)) { idx in 0 < distance(idx, index) }) { idx in collection[idx] }
 }
 
 /**
-Suffix of collection from idx to last element
+Suffix of collection from index to last element
 
-:param: col Collection type
-:param: idx index for element
+:param: collection  Collection type
+:param: index       index for element
 
 :returns: Array of Collection Element Type
 */
-public func drop<C: CollectionType>(col: C, idx: C.Index) -> [C.Generator.Element] {
-    return map(filter(indices(col)) { index in 0 <= distance(idx, index) }) { index in col[index] }
+public func drop<C: CollectionType>(collection: C, index: C.Index) -> [C.Generator.Element] {
+    return map(filter(indices(collection)) { idx in 0 <= distance(index, idx) }) { idx in collection[idx] }
 }
 
 /**
 Longest prefix of collection type satisfying the condition
 
-:param: col  Collection type
-:param: cond condition for element
+:param: collection  Collection type
+:param: condition   condition for element
 
 :returns: Array of Collection Element Type
 */
-public func takeWhile<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> [C.Generator.Element] {
-    let index = findIndex(col) { elem in !cond(elem) } ?? col.endIndex
-    return take(col, index)
+public func takeWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> [C.Generator.Element] {
+    let index = findIndex(collection) { elem in !condition(elem) } ?? collection.endIndex
+    return take(collection, index)
 }
 
 /**
 Suffix of collection type remaining after takeWhile
 
-:param: col  Collection type
-:param: cond condition for element
+:param: collection  Collection type
+:param: condition   condition for element
 
 :returns: Array of Collection Element Type
 */
-public func dropWhile<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> [C.Generator.Element] {
-    let index = findIndex(col) { elem in !cond(elem) } ?? col.endIndex
-    return drop(col, index)
+public func dropWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> [C.Generator.Element] {
+    let index = findIndex(collection) { elem in !condition(elem) } ?? collection.endIndex
+    return drop(collection, index)
 }
 
 /**
 Tuple where first element is longest prefix of collection type satisfying the condition and second element is the remainder of the list
 
-:param: col  Collection type
-:param: cond condition for element
+:param: collection  Collection type
+:param: condition   condition for element
 
 :returns: Tuple of Array of Collection Element Type
 */
-public func span<C: CollectionType>(col: C, cond: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
-    return (takeWhile(col, cond), dropWhile(col, cond))
+public func span<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
+    return (takeWhile(collection, condition), dropWhile(collection, condition))
 }
