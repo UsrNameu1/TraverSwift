@@ -45,3 +45,14 @@ A Bool indicating the existance for all element in array
 public func existsAll<T>(array: [T?]) -> Bool {
     return all(array) { elem in elem != nil }
 }
+
+/**
+Array of concatenation for a array of array type
+
+:param: array array of array type
+
+:returns: Array of concatenation
+*/
+public func concat<U>(array: [[U]]) -> [U] {
+    return reduce(array, [U]()) { (var acc, elem) in acc.extend(elem); return acc }
+}

@@ -50,4 +50,10 @@ class ArrayTipsTests: XCTestCase {
         XCTAssert(successResult != nil, "Cast succeeds for pure array")
     }
     
+    func testConcatFunction() {
+        let arr1 = [[1,2,3],[4,5,6],[7,8,9]]
+        let result1 = concat(arr1)
+        XCTAssert(result1 == [1,2,3,4,5,6,7,8,9], "returns array of concatenation")
+    }
+    
 }
