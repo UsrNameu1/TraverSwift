@@ -88,4 +88,10 @@ class SequenceTypeTipsTests: XCTestCase {
         let result2 = scan(seq2, 4) { x, y in 2 * x + y }
         XCTAssert(result2 == [4, 9, 20, 43], "returns array of reduce result")
     }
+    
+    func testFlatMapFunction() {
+        let seq1 = SequenceOf([4, 2, 3])
+        let result1 = flatMap(seq1) { elem in SequenceOf([elem, elem * 10 + elem]) }
+        XCTAssert(result1 == [4, 44, 2, 22, 3, 33], "returns array of sequence's element")
+    }
 }

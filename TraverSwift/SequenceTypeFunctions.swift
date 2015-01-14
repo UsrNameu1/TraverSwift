@@ -117,3 +117,15 @@ public func scan<S: SequenceType, U>(sequence: S, initial: U, combine: (U, S.Gen
     let array = Array(sequence)
     return (0...array.count).map{ index in reduce(take(array, index), initial, combine) }
 }
+
+/**
+Array of flattened result of sequences transformed from sequence's elements
+
+:param: sequence  sequence type
+:param: transform transform for elenemt of sequence to other sequence
+
+:returns: Array of other sequence element
+*/
+public func flatMap<S: SequenceType, T: SequenceType>(sequence: S, transform: S.Generator.Element -> T) -> [T.Generator.Element] {
+    return concat(Array(sequence).map{ elem in Array(transform(elem)) })
+}
