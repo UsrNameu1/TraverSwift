@@ -31,8 +31,8 @@ The Index of the first element in the collection type satisfying the condition
 
 :returns: The first index (Optional)
 */
-public func findIndex<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> C.Index? {
-    return first(filter(indices(collection)) { index in condition(collection[index]) })
+public func findIndex<C: CollectionType>(collection: C, condition: C.Generator.Element -> BooleanType) -> C.Index? {
+    return first(filter(indices(collection)) { index in condition(collection[index]).boolValue })
 }
 
 /**
@@ -67,8 +67,8 @@ Longest prefix of collection type satisfying the condition
 
 :returns: Array of Collection Element Type
 */
-public func takeWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> [C.Generator.Element] {
-    let index = findIndex(collection) { elem in !condition(elem) } ?? collection.endIndex
+public func takeWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> BooleanType) -> [C.Generator.Element] {
+    let index = findIndex(collection) { elem in !condition(elem).boolValue } ?? collection.endIndex
     return take(collection, index)
 }
 
@@ -80,8 +80,8 @@ Suffix of collection type remaining after takeWhile
 
 :returns: Array of Collection Element Type
 */
-public func dropWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> [C.Generator.Element] {
-    let index = findIndex(collection) { elem in !condition(elem) } ?? collection.endIndex
+public func dropWhile<C: CollectionType>(collection: C, condition: C.Generator.Element -> BooleanType) -> [C.Generator.Element] {
+    let index = findIndex(collection) { elem in !condition(elem).boolValue } ?? collection.endIndex
     return drop(collection, index)
 }
 
@@ -93,7 +93,7 @@ Tuple where first element is longest prefix of collection type satisfying the co
 
 :returns: Tuple of Array of Collection Element Type
 */
-public func span<C: CollectionType>(collection: C, condition: C.Generator.Element -> Bool) -> ([C.Generator.Element], [C.Generator.Element]) {
+public func span<C: CollectionType>(collection: C, condition: C.Generator.Element -> BooleanType) -> ([C.Generator.Element], [C.Generator.Element]) {
     return (takeWhile(collection, condition), dropWhile(collection, condition))
 }
 
