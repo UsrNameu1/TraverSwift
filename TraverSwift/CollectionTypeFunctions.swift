@@ -60,6 +60,18 @@ public func drop<C: CollectionType>(collection: C, index: C.Index) -> [C.Generat
 }
 
 /**
+Tuple where first element is Prefix of collection from first to index element and second element is the remainder
+
+:param: collection Collection type
+:param: index      index for element
+
+:returns: Tuple of Array of Collection Element Type
+*/
+public func splitAt<C: CollectionType>(collection: C, index: C.Index) -> ([C.Generator.Element], [C.Generator.Element]) {
+    return (take(collection, index), drop(collection, index))
+}
+
+/**
 Extract the elements after the first of a collection
 
 :param: collection Collection type

@@ -55,6 +55,13 @@ class CollectionTypeTipsTests: XCTestCase {
         XCTAssert(result2 == [1, 2, 3, 4, 5, 6, 7], "get all suffix elements properly")
     }
     
+    func testSplitAtFunction() {
+        let col1 = [1,2,3,4,5,6,7]
+        let result1 = splitAt(col1, 3)
+        XCTAssert(result1.0 == [1, 2, 3], "get prefix elements properly at first element of tuple")
+        XCTAssert(result1.1 == [4, 5, 6,  7], "get prefix elements properly at second element of tuple")
+    }
+    
     func testDropFirstFunction() {
         let col1 = [1, 2, 3, 4, 5, 6]
         let result1 = dropFirst(col1)
