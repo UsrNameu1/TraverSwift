@@ -54,5 +54,5 @@ Array of concatenation for a array of array type
 :returns: Array of concatenation
 */
 public func concat<U>(array: [[U]]) -> [U] {
-    return reduce(array, [U]()) { (var acc, elem) in acc.extend(elem); return acc }
+    return reduce(array, []) { (var acc, elem) in acc.extend(elem); return acc }
 }

@@ -55,5 +55,4 @@ class ArrayTipsTests: XCTestCase {
         let result1 = concat(arr1)
         XCTAssert(result1 == [1,2,3,4,5,6,7,8,9], "returns array of concatenation")
     }
-    
 }

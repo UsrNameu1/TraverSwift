@@ -129,3 +129,37 @@ Array of flattened result of sequences transformed from sequence's elements
 public func flatMap<S: SequenceType, T: SequenceType>(sequence: S, transform: S.Generator.Element -> T) -> [T.Generator.Element] {
     return concat(Array(sequence).map{ elem in Array(transform(elem)) })
 }
+
+/**
+Takes a sequence and returns a array of array such that the concatenation of the result for condition holds to the argument
+
+:param: sequence  sequence type
+:param: condition condition for elements
+
+:returns: Array of sequence element's array
+*/
+// TODO: Modify condition return value for BooleanType (which currently causes runtime error)
+public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Element , S.Generator.Element) -> Bool) -> [[S.Generator.Element]] {
+    return reduce(sequence, []) { acc, elem in
+        if let lastElem = acc.last?.last {
+            if condition(lastElem, elem) {
+                return take(acc, acc.endIndex - 1) + [acc.last! + [elem]]
+            } else {
+                return acc + [[elem]] 
+            }
+        } else {
+            return [[elem]]
+        }
+    }
+}
+
+/**
+Takes a sequence and returns a array of array such that the concatenation of the result is equal to the argument
+
+:param: sequence  sequence type
+
+:returns: Array of sequence element's array
+*/
+public func group<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> [[S.Generator.Element]] {
+    return groupBy(sequence) { a, b in a == b }
+}

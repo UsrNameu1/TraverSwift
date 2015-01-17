@@ -94,4 +94,23 @@ class SequenceTypeTipsTests: XCTestCase {
         let result1 = flatMap(seq1) { elem in SequenceOf([elem, elem * 10 + elem]) }
         XCTAssert(result1 == [4, 44, 2, 22, 3, 33], "returns array of sequence's element")
     }
+    
+    func testGroupByFunction() {
+        let seq1 = SequenceOf([1,2,3,4,5,6,7,8,9])
+        let result1 = groupBy(seq1, <)
+        XCTAssert(result1 == [[1, 2, 3, 4, 5, 6, 7, 8, 9]], "returns array of array for seqence grouped by second condition")
+        let result2 = groupBy(seq1, >)
+        XCTAssert(result2 == [[1], [2], [3], [4], [5], [6], [7], [8], [9]], "returns array of array for seqence grouped by second condition")
+        let seq2 = SequenceOf([5,6,1,3,4,5,6,7,8,9,10])
+        let result3 = groupBy(seq2, <)
+        XCTAssert(result3 == [[5,6], [1,3,4,5,6,7,8,9,10]], "returns array of array for seqence grouped by second condition")
+        let result4 = groupBy(seq2, >)
+        XCTAssert(result4 == [[5],[6,1],[3],[4],[5],[6],[7],[8],[9],[10]], "returns array of array for seqence grouped by second condition")
+    }
+    
+    func testGroupFunction() {
+        let seq1 = [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+        let result1 = group(seq1)
+        XCTAssert(result1 == [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]] , "returns array of array for seqence grouped by equal operator")
+    }
 }
