@@ -147,7 +147,7 @@ Array of flattened for sequences of sequence type element
 
 :returns: Array of flattened results
 */
-// TODO: With test, this causes compile error like this: Command failed due to signal: Segmentation fault: 11
+// TODO: In test, this causes compile error like this: Command failed due to signal: Segmentation fault: 11
 //public func flatten<S: SequenceType, T: SequenceType where S.Generator.Element == T>(sequence: S) -> [T.Generator.Element] {
 //    let array = Array(sequence)
 //    return reduce(array, []) { (var acc, elem) in acc.extend(elem); return acc }
@@ -194,3 +194,15 @@ Takes a sequence and returns a array of array such that the concatenation of the
 public func group<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> [[S.Generator.Element]] {
     return groupBy(sequence) { a, b in a == b }
 }
+
+/**
+A Bool indicating the existance for some element in sequence
+
+:param: sequence   Sequence type of element of optional
+
+:returns: the existance for some element in array
+*/
+// TODO: This causes compile error like this: Command failed due to signal: Segmentation fault: 11
+//public func existsAny<S: SequenceType, T where S.Generator.Element == Optional<T>>(sequence: S) -> Bool {
+//    return any(sequence) { (elem: Optional<T>) in elem != nil }
+//}
