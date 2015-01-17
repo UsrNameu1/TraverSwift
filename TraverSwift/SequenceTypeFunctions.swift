@@ -129,7 +129,7 @@ public func or<S: SequenceType where S.Generator.Element: BooleanType>(sequence:
 /**
 Array from intermediate to final results of reduce function
 
-:param: sequence sequence type
+:param: sequence Sequence type
 :param: initial  initial for reduce
 :param: combine  combine function for reduce
 
@@ -141,9 +141,22 @@ public func scan<S: SequenceType, U>(sequence: S, initial: U, combine: (U, S.Gen
 }
 
 /**
+Array of flattened for sequences of sequence type element
+
+:param: sequence Sequence type
+
+:returns: Array of flattened results
+*/
+// TODO: With test, this causes compile error like this: Command failed due to signal: Segmentation fault: 11
+//public func flatten<S: SequenceType, T: SequenceType where S.Generator.Element == T>(sequence: S) -> [T.Generator.Element] {
+//    let array = Array(sequence)
+//    return reduce(array, []) { (var acc, elem) in acc.extend(elem); return acc }
+//}
+
+/**
 Array of flattened result of sequences transformed from sequence's elements
 
-:param: sequence  sequence type
+:param: sequence  Sequence type
 :param: transform transform for elenemt of sequence to other sequence
 
 :returns: Array of other sequence element
@@ -155,7 +168,7 @@ public func flatMap<S: SequenceType, T: SequenceType>(sequence: S, transform: S.
 /**
 Takes a sequence and returns a array of array such that the concatenation of the result for condition holds to the argument
 
-:param: sequence  sequence type
+:param: sequence  Sequence type
 :param: condition condition for elements
 
 :returns: Array of sequence element's array
@@ -174,7 +187,7 @@ public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Elemen
 /**
 Takes a sequence and returns a array of array such that the concatenation of the result is equal to the argument
 
-:param: sequence  sequence type
+:param: sequence  Sequence type
 
 :returns: Array of sequence element's array
 */
