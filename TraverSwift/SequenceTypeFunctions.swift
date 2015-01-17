@@ -83,6 +83,28 @@ public func product<S: SequenceType where S.Generator.Element: IntegerArithmetic
 }
 
 /**
+Sum for Sequence type of FloatingArithmeticType Elements
+
+:param: sequence Sequence type of FloatingArithmeticType Elements
+
+:returns: sum of elements
+*/
+public func sum<S: SequenceType where S.Generator.Element: FloatingArithmeticType>(sequence: S) -> S.Generator.Element {
+    return reduce(sequence, 0.0 as S.Generator.Element) { acc, elem in acc + elem }
+}
+
+/**
+Product for Sequence type of FloatingArithmeticType Elements
+
+:param: sequence Sequence type of FloatingArithmeticType Elements
+
+:returns: product of elements
+*/
+public func product<S: SequenceType where S.Generator.Element: FloatingArithmeticType>(sequence: S) -> S.Generator.Element {
+    return reduce(sequence, 1.0 as S.Generator.Element) { acc, elem in acc * elem }
+}
+
+/**
 Conjunction of a BooleanType sequence
 
 :param: sequence BooleanType sequence

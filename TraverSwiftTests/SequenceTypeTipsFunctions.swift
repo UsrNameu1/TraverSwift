@@ -48,15 +48,23 @@ class SequenceTypeTipsTests: XCTestCase {
     }
     
     func testSumFunction() {
-        let seq = SequenceOf([1,2,3,4,5,6])
-        let result = sum(seq)
-        XCTAssert(result == 21, "Sum of all elements can be computed properly")
+        let seq1 = SequenceOf([1,2,3,4,5,6])
+        let result1 = sum(seq1)
+        XCTAssert(result1 == 21, "Sum of all elements can be computed properly")
+        
+        let seq2 = SequenceOf([1.1,2.2,3.3,4.0,5.2,6.1])
+        let result2 = sum(seq2)
+        XCTAssert(result2 == 21.9, "Sum of all elements can be computed properly")
     }
     
     func testProductFunction() {
-        let seq = SequenceOf([1,2,3,4,5,6])
-        let result = product(seq)
-        XCTAssert(result == 720, "Product of all elements can be computed properly")
+        let seq1 = SequenceOf([1,2,3,4,5,6])
+        let result1 = product(seq1)
+        XCTAssert(result1 == 720, "Product of all elements can be computed properly")
+        
+        let seq2 = SequenceOf([1.0,2.2,3.0,4.1,5.0,6.0])
+        let result2 = product(seq2)
+        XCTAssert(result2 == 1.0 * 2.2 * 3.0 * 4.1 * 5.0 * 6.0, "Product of all elements can be computed properly")
     }
     
     func testAndFunction() {
