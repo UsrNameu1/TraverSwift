@@ -143,7 +143,7 @@ public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Elemen
     return reduce(sequence, []) { acc, elem in
         if let lastElem = acc.last?.last {
             if condition(lastElem, elem) {
-                return take(acc, acc.endIndex - 1) + [acc.last! + [elem]]
+                return dropLast(acc) + [acc.last! + [elem]]
             } else {
                 return acc + [[elem]] 
             }

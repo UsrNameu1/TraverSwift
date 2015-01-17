@@ -60,6 +60,28 @@ public func drop<C: CollectionType>(collection: C, index: C.Index) -> [C.Generat
 }
 
 /**
+Extract the elements after the first of a collection
+
+:param: collection Collection type
+
+:returns: Array of Collection Element Type
+*/
+public func dropFirst<C: CollectionType>(collection: C) -> [C.Generator.Element] {
+    return drop(collection, collection.startIndex)
+}
+
+/**
+All the elements of a collection except the last one
+
+:param: collection Collection type
+
+:returns: Array of Collection Element Type
+*/
+public func dropLast<C: CollectionType>(collection: C) -> [C.Generator.Element] {
+    return take(collection, advance(collection.startIndex, distance(collection.startIndex, collection.endIndex) - 1))
+}
+
+/**
 Longest prefix of collection type satisfying the condition
 
 :param: collection  Collection type
@@ -109,3 +131,4 @@ public func cast<C: CollectionType, U>(collection: C!, forType: U.Type) -> [U]? 
     let castedCollection = map(collection) { val in val as? U }
     return existsAll(castedCollection) ? castedCollection.map { val in val! } : nil
 }
+

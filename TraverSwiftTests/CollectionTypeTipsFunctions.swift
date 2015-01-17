@@ -55,6 +55,18 @@ class CollectionTypeTipsTests: XCTestCase {
         XCTAssert(result2 == [1, 2, 3, 4, 5, 6, 7], "get all suffix elements properly")
     }
     
+    func testDropFirstFunction() {
+        let col1 = [1, 2, 3, 4, 5, 6]
+        let result1 = dropFirst(col1)
+        XCTAssert(result1 == [2, 3, 4, 5, 6], "get elements except first properly")
+    }
+    
+    func testDropLastFunction() {
+        let col1 = [1, 2, 3, 4, 5, 6]
+        let result1 = dropLast(col1)
+        XCTAssert(result1 == [1, 2, 3, 4, 5], "get elements except last properly")
+    }
+    
     func testTakeWhileFunction() {
         let col1 = [1,2,3,4,1,2,3,4]
         let result1 = takeWhile(col1) { elem in elem < 3 }
