@@ -142,11 +142,7 @@ Takes a sequence and returns a array of array such that the concatenation of the
 public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Element , S.Generator.Element) -> Bool) -> [[S.Generator.Element]] {
     return reduce(sequence, []) { acc, elem in
         if let lastElem = acc.last?.last {
-            if condition(lastElem, elem) {
-                return dropLast(acc) + [acc.last! + [elem]]
-            } else {
-                return acc + [[elem]] 
-            }
+            return condition(lastElem, elem) ? dropLast(acc) + [acc.last! + [elem]] : acc + [[elem]]
         } else {
             return [[elem]]
         }
