@@ -26,7 +26,7 @@
 import XCTest
 import TraverSwift
 
-class CollectionTypeTipsTests: XCTestCase {
+class CollectionTypeFunctionsTests: XCTestCase {
     
     func testFindIndexFunction() {
         let col1 = [1,2,3,4,4,6]

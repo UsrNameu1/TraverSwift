@@ -26,7 +26,7 @@
 import XCTest
 import TraverSwift
 
-class SequenceTypeTipsTests: XCTestCase {
+class SequenceTypeFunctionsTests: XCTestCase {
     
     func testAnyFunction() {
         let seq = [1,2,3,4,5,6,7]
