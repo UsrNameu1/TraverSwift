@@ -26,7 +26,7 @@
 import XCTest
 import TraverSwift
 
-class ArrayTipsTests: XCTestCase {
+class ArrayFunctionsTests: XCTestCase {
     
     func testExistsAnyFunction() {
         let arr = ["1e3","123","rf3","rf3"].map{ str in str.toInt() }
