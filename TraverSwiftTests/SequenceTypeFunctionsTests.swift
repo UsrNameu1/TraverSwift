@@ -124,8 +124,15 @@ class SequenceTypeFunctionsTests: XCTestCase {
     }
     
     func testGroupFunction() {
-        let seq1 = [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+        let seq1 = SequenceOf([1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7])
         let result1 = group(seq1)
         XCTAssert(result1 == [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]] , "returns array of array for seqence grouped by equal operator")
+    }
+    
+    func testStripPrefixFunction() {
+        XCTAssert(stripPrefix("foobar", "foo")! == ["b","a","r"], "returns some string after the prefix if the sequence start with prefix given")
+        XCTAssert(stripPrefix("foo", "foo")! == [], "returns empty string if the sequence equal with prefix given")
+        XCTAssert(stripPrefix("barfoo", "foo") == nil, "returns .None if the sequence don't start with prefix given")
+        XCTAssert(stripPrefix("barfoobaz", "foo") == nil, "returns .None if the sequence don't start with prefix given")
     }
 }

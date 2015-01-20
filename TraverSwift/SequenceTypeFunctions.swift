@@ -196,6 +196,18 @@ public func group<S: SequenceType where S.Generator.Element: Equatable>(sequence
 }
 
 /**
+Drops the given prefix from sequence
+
+:param: sequence Sequence type
+:param: prefix   Sequence type prefix
+
+:returns: Optional.None if the sequence did not start with the prefix given , or Optional.Some the sequence after the prefix if it does
+*/
+public func stripPrefix<S: SequenceType where S.Generator.Element: Equatable>(sequence: S, prefix: S) -> [S.Generator.Element]? {
+    return startsWith(sequence, prefix) ? drop(Array(sequence), Array(prefix).count) : nil
+}
+
+/**
 A Bool indicating the existance for some element in sequence
 
 :param: sequence   Sequence type of element of optional
