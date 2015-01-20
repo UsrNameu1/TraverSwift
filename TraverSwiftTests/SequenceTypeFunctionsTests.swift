@@ -87,6 +87,10 @@ class SequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(result2 == false, "returns false if all elements are false")
     }
     
+    func testIntersperseFunction() {
+        XCTAssert(intersperse("abcde", ",") == ["a",",","b",",","c",",","d",",","e"], "returns interspersed array")
+    }
+    
     func testScanFunction() {
         let seq1 = SequenceOf([4, 2, 4])
         let result1 = scan(seq1, 64, /)

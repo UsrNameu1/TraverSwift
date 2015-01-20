@@ -127,6 +127,18 @@ public func or<S: SequenceType where S.Generator.Element: BooleanType>(sequence:
 }
 
 /**
+Insert element between elements of sequence
+
+:param: sequence Sequence type
+:param: element  Sequence's element type
+
+:returns: The result of the interspersion of element between sequence elements
+*/
+public func intersperse<S: SequenceType>(sequence: S, element: S.Generator.Element) -> [S.Generator.Element] {
+    return Array(join([element], map(sequence) { elem in [elem] } ))
+}
+
+/**
 Array from intermediate to final results of reduce function
 
 :param: sequence Sequence type
