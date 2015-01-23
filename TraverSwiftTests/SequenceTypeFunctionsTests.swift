@@ -139,4 +139,9 @@ class SequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(stripPrefix("barfoo", "foo") == nil, "returns .None if the sequence don't start with prefix given")
         XCTAssert(stripPrefix("barfoobaz", "foo") == nil, "returns .None if the sequence don't start with prefix given")
     }
+    
+    func testDistinctFunction() {
+        XCTAssert(distinct([1,2,3,4,5,4,3,2,3,1,0]) == [1,2,3,4,5,0], "returns array without duplicated elements")
+        XCTAssert(distinct("bannana") == ["b", "a", "n"], "returns array without duplicated elements")
+    }
 }

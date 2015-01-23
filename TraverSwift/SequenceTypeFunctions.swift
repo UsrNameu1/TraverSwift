@@ -230,3 +230,14 @@ A Bool indicating the existance for some element in sequence
 //public func existsAny<S: SequenceType, T where S.Generator.Element == Optional<T>>(sequence: S) -> Bool {
 //    return any(sequence) { (elem: Optional<T>) in elem != nil }
 //}
+
+/**
+Removes duplicate elements from a sequence
+
+:param: sequence Sequence type
+
+:returns: Array without duplicate element
+*/
+public func distinct<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> [S.Generator.Element] {
+    return reduce(sequence, []) { acc, elem in contains(acc, elem) ? acc : acc + [elem] }
+}
