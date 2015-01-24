@@ -185,7 +185,6 @@ Takes a sequence and returns a array of array such that the concatenation of the
 
 :returns: Array of sequence element's array
 */
-// TODO: Modify condition return value for BooleanType (which currently causes runtime error)
 public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Element , S.Generator.Element) -> Bool) -> [[S.Generator.Element]] {
     return reduce(sequence, []) { acc, elem in
         if let lastElem = acc.last?.last {
@@ -194,7 +193,7 @@ public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Elemen
             return [[elem]]
         }
     }
-}
+}// TODO: Modify condition return value for BooleanType (which currently causes runtime error)
 
 /**
 Takes a sequence and returns a array of array such that the concatenation of the result is equal to the argument

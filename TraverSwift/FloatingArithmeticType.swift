@@ -24,13 +24,58 @@
 //  SOFTWARE.
 
 /**
-*  protocol for four rules of arithmetic operators in Floating values
+*  protocol for rules of arithmetic operators in Floating values
 */
 public protocol FloatingArithmeticType {
+    
+    /**
+    Sum operator for floating type
+    
+    :param: lhs left hand floating type
+    :param: rhs right hand flating type
+    
+    :returns: Sum of two floating type
+    */
     func +(lhs: Self, rhs: Self) -> Self
+    
+    /**
+    Minus operator for floating type
+    
+    :param: lhs left hand floating type
+    :param: rhs right hand floating type
+    
+    :returns: Differance of two floating type
+    */
     func -(lhs: Self, rhs: Self) -> Self
+    
+    /**
+    Product operator for floating type
+    
+    :param: lhs left hand floating type
+    :param: rhs right hand floating type
+    
+    :returns: Product of two floating type
+    */
     func *(lhs: Self, rhs: Self) -> Self
+    
+    /**
+    Division operator for floating type
+    
+    :param: lhs left hand floating type (Dividend)
+    :param: rhs right hand floating type (Divisor)
+    
+    :returns: Quotient of two floating type
+    */
     func /(lhs: Self, rhs: Self) -> Self
+    
+    /**
+    Residue operator for floating type
+    
+    :param: lhs left hand floating type (Diviend)
+    :param: rhs right hand floating type (Divisor)
+    
+    :returns: Remindor of two floating type
+    */
     func %(lhs: Self, rhs: Self) -> Self
 }
 
