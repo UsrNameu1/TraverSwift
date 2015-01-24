@@ -1,0 +1,9 @@
+FloatingArithmeticType.swift
+	func +(lhs: Self, rhs: Self) -> Self
+	func -(lhs: Self, rhs: Self) -> Self
+	func *(lhs: Self, rhs: Self) -> Self
+	func /(lhs: Self, rhs: Self) -> Self
+	func %(lhs: Self, rhs: Self) -> Self
+Swift
+	struct Double
+	struct Float
