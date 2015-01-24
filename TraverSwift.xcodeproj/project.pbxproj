@@ -14,6 +14,10 @@
 		1459B1E61A6A8CE800E7EF8B /* FloatingArithmeticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1459B1E51A6A8CE800E7EF8B /* FloatingArithmeticType.swift */; };
 		14CBA1A41A40B8C00050641D /* ArrayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA1A31A40B8C00050641D /* ArrayFunctions.swift */; };
 		14CBA1A61A40B8F20050641D /* ArrayFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA1A51A40B8F20050641D /* ArrayFunctionsTests.swift */; };
+		F73128DC1A7391A3004A6E17 /* EquatableSequenceTypeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73128DB1A7391A3004A6E17 /* EquatableSequenceTypeFunctions.swift */; };
+		F73128DE1A739253004A6E17 /* SpecialSequenceTypeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73128DD1A739253004A6E17 /* SpecialSequenceTypeFunctions.swift */; };
+		F73128E01A739346004A6E17 /* EquatableSequenceTypeFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73128DF1A739346004A6E17 /* EquatableSequenceTypeFunctionsTests.swift */; };
+		F73128E21A7393BE004A6E17 /* SpecialSequenceTypeFuncitonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73128E11A7393BE004A6E17 /* SpecialSequenceTypeFuncitonsTests.swift */; };
 		F7BF29DA1A57DA550084C964 /* CollectionTypeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF29D91A57DA550084C964 /* CollectionTypeFunctions.swift */; };
 		F7BF29DD1A5836E30084C964 /* CollectionTypeFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF29DC1A5836E30084C964 /* CollectionTypeFunctionsTests.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +44,10 @@
 		1459B1E51A6A8CE800E7EF8B /* FloatingArithmeticType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingArithmeticType.swift; sourceTree = "<group>"; };
 		14CBA1A31A40B8C00050641D /* ArrayFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayFunctions.swift; sourceTree = "<group>"; };
 		14CBA1A51A40B8F20050641D /* ArrayFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayFunctionsTests.swift; sourceTree = "<group>"; };
+		F73128DB1A7391A3004A6E17 /* EquatableSequenceTypeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableSequenceTypeFunctions.swift; sourceTree = "<group>"; };
+		F73128DD1A739253004A6E17 /* SpecialSequenceTypeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialSequenceTypeFunctions.swift; sourceTree = "<group>"; };
+		F73128DF1A739346004A6E17 /* EquatableSequenceTypeFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableSequenceTypeFunctionsTests.swift; sourceTree = "<group>"; };
+		F73128E11A7393BE004A6E17 /* SpecialSequenceTypeFuncitonsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialSequenceTypeFuncitonsTests.swift; sourceTree = "<group>"; };
 		F7BF29D91A57DA550084C964 /* CollectionTypeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeFunctions.swift; sourceTree = "<group>"; };
 		F7BF29DC1A5836E30084C964 /* CollectionTypeFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeFunctionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				1447E9521A40988D00127AAD /* SequenceTypeFunctionsTests.swift */,
+				F73128DF1A739346004A6E17 /* EquatableSequenceTypeFunctionsTests.swift */,
+				F73128E11A7393BE004A6E17 /* SpecialSequenceTypeFuncitonsTests.swift */,
 				F7BF29DC1A5836E30084C964 /* CollectionTypeFunctionsTests.swift */,
 				14CBA1A51A40B8F20050641D /* ArrayFunctionsTests.swift */,
 				1447E9421A40925D00127AAD /* Supporting Files */,
@@ -123,6 +133,8 @@
 			children = (
 				1447E9371A40925D00127AAD /* TraverSwift.h */,
 				1447E94F1A40955E00127AAD /* SequenceTypeFunctions.swift */,
+				F73128DB1A7391A3004A6E17 /* EquatableSequenceTypeFunctions.swift */,
+				F73128DD1A739253004A6E17 /* SpecialSequenceTypeFunctions.swift */,
 				F7BF29D91A57DA550084C964 /* CollectionTypeFunctions.swift */,
 				14CBA1A31A40B8C00050641D /* ArrayFunctions.swift */,
 				1459B1E51A6A8CE800E7EF8B /* FloatingArithmeticType.swift */,
@@ -238,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1447E9501A40955E00127AAD /* SequenceTypeFunctions.swift in Sources */,
+				F73128DC1A7391A3004A6E17 /* EquatableSequenceTypeFunctions.swift in Sources */,
 				14CBA1A41A40B8C00050641D /* ArrayFunctions.swift in Sources */,
 				F7BF29DA1A57DA550084C964 /* CollectionTypeFunctions.swift in Sources */,
+				F73128DE1A739253004A6E17 /* SpecialSequenceTypeFunctions.swift in Sources */,
 				1459B1E61A6A8CE800E7EF8B /* FloatingArithmeticType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +265,8 @@
 				1447E9531A40988D00127AAD /* SequenceTypeFunctionsTests.swift in Sources */,
 				F7BF29DD1A5836E30084C964 /* CollectionTypeFunctionsTests.swift in Sources */,
 				14CBA1A61A40B8F20050641D /* ArrayFunctionsTests.swift in Sources */,
+				F73128E21A7393BE004A6E17 /* SpecialSequenceTypeFuncitonsTests.swift in Sources */,
+				F73128E01A739346004A6E17 /* EquatableSequenceTypeFunctionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

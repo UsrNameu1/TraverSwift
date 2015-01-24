@@ -40,16 +40,6 @@ class ArrayFunctionsTests: XCTestCase {
         XCTAssert(result, "All of the elements can convert to Int")
     }
     
-    func testCastForTypeFunction() {
-        let objs: [NSObject]! = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
-        let failResult = cast(objs, NSString.self)
-        XCTAssert(failResult == nil, "Cast fail for compounded array")
-        
-        let strs: [NSObject]! = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
-        let successResult = cast(strs, NSString.self)
-        XCTAssert(successResult != nil, "Cast succeeds for pure array")
-    }
-    
     func testConcatFunction() {
         let arr1 = [[1,2,3],[4,5,6],[7,8,9]]
         let result1 = concat(arr1)

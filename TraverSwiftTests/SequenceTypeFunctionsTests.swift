@@ -39,54 +39,7 @@ class SequenceTypeFunctionsTests: XCTestCase {
         let result = all (seq) { a in a > 0 }
         XCTAssert(result, "All of the elements are larger than 0")
     }
-    
-    func testEqualOperator() {
-        let seq1 = SequenceOf([1,2,3,4,5,6])
-        let seq2 = SequenceOf([1,2,3,4,5,6])
-        let result = seq1 == seq2
-        XCTAssert(result, "All elements equal in the same order")
-    }
-    
-    func testSumFunction() {
-        let seq1 = SequenceOf([1,2,3,4,5,6])
-        let result1 = sum(seq1)
-        XCTAssert(result1 == 21, "Sum of all elements can be computed properly")
-        
-        let seq2 = SequenceOf([1.1,2.2,3.3,4.0,5.2,6.1])
-        let result2 = sum(seq2)
-        XCTAssert(result2 == 21.9, "Sum of all elements can be computed properly")
-    }
-    
-    func testProductFunction() {
-        let seq1 = SequenceOf([1,2,3,4,5,6])
-        let result1 = product(seq1)
-        XCTAssert(result1 == 720, "Product of all elements can be computed properly")
-        
-        let seq2 = SequenceOf([1.0,2.2,3.0,4.1,5.0,6.0])
-        let result2 = product(seq2)
-        XCTAssert(result2 == 1.0 * 2.2 * 3.0 * 4.1 * 5.0 * 6.0, "Product of all elements can be computed properly")
-    }
-    
-    func testAndFunction() {
-        let seq1 = SequenceOf([false, true, true, true])
-        let result1 = and(seq1)
-        XCTAssert(result1 == false, "returns false if at least one of the elements is false")
-        
-        let seq2 = SequenceOf([true, true, true, true])
-        let result2 = and(seq2)
-        XCTAssert(result2 == true, "returns true if all elements are true")
-    }
-    
-    func testOrFunction() {
-        let seq1 = SequenceOf([false, true, false, false])
-        let result1 = or(seq1)
-        XCTAssert(result1 == true, "returns true if at least one of the elements is true")
-        
-        let seq2 = SequenceOf([false, false, false, false])
-        let result2 = or(seq2)
-        XCTAssert(result2 == false, "returns false if all elements are false")
-    }
-    
+
     func testIntersperseFunction() {
         XCTAssert(intersperse("abcde", ",") == ["a",",","b",",","c",",","d",",","e"], "returns interspersed array")
     }
@@ -129,23 +82,5 @@ class SequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(result3 == [[5,6], [1,3,4,5,6,7,8,9,10]], "returns array of array for seqence grouped by second condition")
         let result4 = groupBy(seq2, >)
         XCTAssert(result4 == [[5],[6,1],[3],[4],[5],[6],[7],[8],[9],[10]], "returns array of array for seqence grouped by second condition")
-    }
-    
-    func testGroupFunction() {
-        let seq1 = SequenceOf([1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7])
-        let result1 = group(seq1)
-        XCTAssert(result1 == [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]] , "returns array of array for seqence grouped by equal operator")
-    }
-    
-    func testStripPrefixFunction() {
-        XCTAssert(stripPrefix("foobar", "foo")! == ["b","a","r"], "returns some string after the prefix if the sequence start with prefix given")
-        XCTAssert(stripPrefix("foo", "foo")! == [], "returns empty string if the sequence equal with prefix given")
-        XCTAssert(stripPrefix("barfoo", "foo") == nil, "returns .None if the sequence don't start with prefix given")
-        XCTAssert(stripPrefix("barfoobaz", "foo") == nil, "returns .None if the sequence don't start with prefix given")
-    }
-    
-    func testDistinctFunction() {
-        XCTAssert(distinct([1,2,3,4,5,4,3,2,3,1,0]) == [1,2,3,4,5,0], "returns array without duplicated elements")
-        XCTAssert(distinct("bannana") == ["b", "a", "n"], "returns array without duplicated elements")
     }
 }

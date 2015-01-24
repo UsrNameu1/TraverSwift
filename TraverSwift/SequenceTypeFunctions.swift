@@ -23,7 +23,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-
 /**
 A Bool indicating whether the predicate condition holds for some element in sequence
 
@@ -46,84 +45,6 @@ A Bool indicating whether the predicate condition holds for all element in seque
 */
 public func all<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> Bool {
     return and(map(sequence) { elem in condition(elem).boolValue })
-}
-
-/**
-Equal operator for Sequence type
-
-:param: lhs left Sequence Type
-:param: rhs right Sequence Type
-
-:returns: whether lhs & rhs contains same elements in the same order
-*/
-public func == <S1 : SequenceType, S2 : SequenceType where S1.Generator.Element == S2.Generator.Element, S1.Generator.Element : Equatable>(lhs: S1, rhs: S2) -> Bool {
-    return equal(lhs, rhs)
-}
-
-/**
-Sum for Sequence type of IntegerArithmeticType Elements
-
-:param: sequence Sequence type of IntegerArithmeticType Elements
-
-:returns: sum of elements
-*/
-public func sum<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(sequence: S) -> S.Generator.Element {
-    return reduce(sequence, 0 as S.Generator.Element) { acc, elem in acc + elem }
-}
-
-/**
-Product for Sequence type of IntegerArithmeticType Elements
-
-:param: sequence Sequence type of IntegerArithmeticType Elements
-
-:returns: product of elements
-*/
-public func product<S: SequenceType where S.Generator.Element: IntegerArithmeticType>(sequence: S) -> S.Generator.Element {
-    return reduce(sequence, 1 as S.Generator.Element) { acc, elem in acc * elem }
-}
-
-/**
-Sum for Sequence type of FloatingArithmeticType Elements
-
-:param: sequence Sequence type of FloatingArithmeticType Elements
-
-:returns: sum of elements
-*/
-public func sum<S: SequenceType where S.Generator.Element: FloatingArithmeticType>(sequence: S) -> S.Generator.Element {
-    return reduce(sequence, 0.0 as S.Generator.Element) { acc, elem in acc + elem }
-}
-
-/**
-Product for Sequence type of FloatingArithmeticType Elements
-
-:param: sequence Sequence type of FloatingArithmeticType Elements
-
-:returns: product of elements
-*/
-public func product<S: SequenceType where S.Generator.Element: FloatingArithmeticType>(sequence: S) -> S.Generator.Element {
-    return reduce(sequence, 1.0 as S.Generator.Element) { acc, elem in acc * elem }
-}
-
-/**
-Conjunction of a BooleanType sequence
-
-:param: sequence BooleanType sequence
-
-:returns: whether all elements are true
-*/
-public func and<S: SequenceType where S.Generator.Element: BooleanType>(sequence: S) -> Bool {
-    return reduce(sequence, true) { acc, elem in elem && acc }
-}
-
-/**
-Disjunction of a BooleanType sequence
-
-:param: sequence BooleanType sequence
-
-:returns: whether at least one of the elements is true
-*/
-public func or<S: SequenceType where S.Generator.Element: BooleanType>(sequence: S) -> Bool {
-    return reduce(sequence, false) { acc, elem in elem || acc }
 }
 
 /**
@@ -208,48 +129,3 @@ public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Elemen
     }
 }// TODO: Modify condition return value for BooleanType (which currently causes runtime error)
 
-/**
-Takes a sequence and returns a array of array such that the concatenation of the result is equal to the argument
-
-:param: sequence  Sequence type
-
-:returns: Array of sequence element's array
-*/
-public func group<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> [[S.Generator.Element]] {
-    return groupBy(sequence) { a, b in a == b }
-}
-
-/**
-Drops the given prefix from sequence
-
-:param: sequence Sequence type
-:param: prefix   Sequence type prefix
-
-:returns: Optional.None if the sequence did not start with the prefix given , or Optional.Some the sequence after the prefix if it does
-*/
-public func stripPrefix<S: SequenceType where S.Generator.Element: Equatable>(sequence: S, prefix: S) -> [S.Generator.Element]? {
-    return startsWith(sequence, prefix) ? drop(Array(sequence), Array(prefix).count) : nil
-}
-
-/**
-A Bool indicating the existance for some element in sequence
-
-:param: sequence   Sequence type of element of optional
-
-:returns: the existance for some element in array
-*/
-// TODO: This causes compile error like this: Command failed due to signal: Segmentation fault: 11
-//public func existsAny<S: SequenceType, T where S.Generator.Element == Optional<T>>(sequence: S) -> Bool {
-//    return any(sequence) { (elem: Optional<T>) in elem != nil }
-//}
-
-/**
-Removes duplicate elements from a sequence
-
-:param: sequence Sequence type
-
-:returns: Array without duplicate element
-*/
-public func distinct<S: SequenceType where S.Generator.Element: Equatable>(sequence: S) -> [S.Generator.Element] {
-    return reduce(sequence, []) { acc, elem in contains(acc, elem) ? acc : acc + [elem] }
-}

@@ -106,4 +106,14 @@ class CollectionTypeFunctionsTests: XCTestCase {
         XCTAssert(result1.0 == [1, 2], "first element is the longest prefix elements")
         XCTAssert(result1.1 == [3,4,1,2,3,4], "second element is the remeining of the longest prefix elements")
     }
+    
+    func testCastForTypeFunction() {
+        let objs: [NSObject]! = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+        let failResult = cast(objs, NSString.self)
+        XCTAssert(failResult == nil, "Cast fail for compounded array")
+        
+        let strs: [NSObject]! = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
+        let successResult = cast(strs, NSString.self)
+        XCTAssert(successResult != nil, "Cast succeeds for pure array")
+    }
 }
