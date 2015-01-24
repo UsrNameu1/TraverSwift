@@ -91,6 +91,10 @@ class SequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(intersperse("abcde", ",") == ["a",",","b",",","c",",","d",",","e"], "returns interspersed array")
     }
     
+    func testSubsequenceFunction() {
+        XCTAssert(subsequences([1, 2, 3]) == [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]], "returns subsequence array")
+    }
+    
     func testScanFunction() {
         let seq1 = SequenceOf([4, 2, 4])
         let result1 = scan(seq1, 64, /)

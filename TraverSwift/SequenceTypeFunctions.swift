@@ -139,6 +139,19 @@ public func intersperse<S: SequenceType>(sequence: S, element: S.Generator.Eleme
 }
 
 /**
+Array of all subsequences from sequence
+
+:param: sequence Sequence type
+
+:returns: All subsequences for sequence type argument
+*/
+public func subsequences<S: SequenceType>(sequence: S) -> [[S.Generator.Element]] {
+    return reduce(sequence, [[]]) { acc, elem in
+        acc + acc.map { val in val + [elem] }
+    }
+}
+
+/**
 Array from intermediate to final results of reduce function
 
 :param: sequence Sequence type
