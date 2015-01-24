@@ -35,15 +35,15 @@ class EquatableSequenceTypeFunctionsTests: XCTestCase {
     }
     
     func testStripPrefixFunction() {
-        XCTAssert(stripPrefix("foobar", "foo")! == ["b","a","r"], "returns some string after the prefix if the sequence start with prefix given")
-        XCTAssert(stripPrefix("foo", "foo")! == [], "returns empty string if the sequence equal with prefix given")
+        XCTAssert(String(stripPrefix("foobar", "foo")!) == "bar", "returns some string after the prefix if the sequence start with prefix given")
+        XCTAssert(String(stripPrefix("foo", "foo")!) == "", "returns empty string if the sequence equal with prefix given")
         XCTAssert(stripPrefix("barfoo", "foo") == nil, "returns .None if the sequence don't start with prefix given")
         XCTAssert(stripPrefix("barfoobaz", "foo") == nil, "returns .None if the sequence don't start with prefix given")
     }
     
     func testDistinctFunction() {
         XCTAssert(distinct([1,2,3,4,5,4,3,2,3,1,0]) == [1,2,3,4,5,0], "returns array without duplicated elements")
-        XCTAssert(distinct("bannana") == ["b", "a", "n"], "returns array without duplicated elements")
+        XCTAssert(String(distinct("bannana")) == "ban", "returns array without duplicated elements")
     }
     
     func testEqualOperator() {
