@@ -46,6 +46,16 @@ class EquatableSequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(String(distinct("bannana")) == "ban", "returns array without duplicated elements")
     }
     
+    func testUnionFunction() {
+        XCTAssert(union([1,2,3], [2, 3, 4]) == [1,2,3,4], "returns union without duplicated elements")
+        XCTAssert(String(union("dog", "cow")) == "dogcw", "returns union without duplicated elements")
+    }
+    
+    func testIntersectionFunction() {
+        XCTAssert(intersect([1,2,3,4], [2,4,6,8]) == [2,4], "returns intersection for two sequences")
+        XCTAssert(intersect([1,2,2,3,4], [6,4,4,2]) == [2,2,4], "returns result which contains duplicate if first sequence does")
+    }
+    
     func testEqualOperator() {
         let seq1 = SequenceOf([1,2,3,4,5,6])
         let seq2 = SequenceOf([1,2,3,4,5,6])

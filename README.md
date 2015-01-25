@@ -18,6 +18,8 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 		- [group function](#group-function)
 		- [stripPrefix function](#stripprefix-function)
 		- [distinct function](#distinct-function)
+		- [union function](#union-function)
+		- [intersect function](#intersect-function)
 		- [equel operator](#equel-operator)
 	- [Special element SequenceType](#special-element-sequencetype)
 		- [sum & product function for ArithmeticType element](#sum--product-function-for-integerarithmetictype-or-floatingarithmetictypecustom-protocol-element)
@@ -131,6 +133,23 @@ stripPrefix("barfoobaz", "foo") == nil // true
 // returns array without duplicated elements
 distinct([1,2,3,4,5,4,3,2,3,1,0]) == [1,2,3,4,5,0] // true
 distinct("bannana") == ["b", "a", "n"] // true
+```
+
+### union function 
+
+```swift 
+// returns union without duplicated elements
+union([1,2,3], [2, 3, 4]) == [1,2,3,4] // true
+```
+
+### intersect function
+
+```swift
+// returns intersection for two sequences
+intersect([1,2,3,4], [2,4,6,8]) == [2,4] // true
+
+// returns result which contains duplicate if first sequence does
+intersect([1,2,2,3,4], [6,4,4,2]) == [2,2,4] // true
 ```
  
 ### equel operator
