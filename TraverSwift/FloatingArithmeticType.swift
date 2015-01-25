@@ -24,7 +24,7 @@
 //  SOFTWARE.
 
 /**
-*  protocol for rules of arithmetic operators in Floating values
+protocol for rules of arithmetic operators in Floating values
 */
 public protocol FloatingArithmeticType {
     

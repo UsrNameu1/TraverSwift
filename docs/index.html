@@ -23,7 +23,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p class="header-text"><a href="index.html"> Docs</a> (83% documented)</p>
+        <p class="header-text"><a href="index.html"> Docs</a> (84% documented)</p>
         <p id="header-links"><a href=""><img id="header-icon" src="img/gh.png" height="16px" width="16px" />View on GitHub</a></p>
       </div>
     </header>
@@ -105,16 +105,19 @@
                 <a href="Functions.html#/s:F11TraverSwift7groupByUSs12SequenceType_USs13GeneratorType___FTQ_FTQQQ_9Generator7ElementS3__Sb_GSaGSaS3___">groupBy(_:_:)</a>
               </li>
               <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift9intersectUSs12SequenceType_USs13GeneratorType_Ss9Equatable__FTQ_Q__GSaQQQ_9Generator7Element_">intersect(_:_:)</a>
+              </li>
+              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift11intersperseUSs12SequenceType_USs13GeneratorType___FTQ_QQQ_9Generator7Element_GSaS3__">intersperse(_:_:)</a>
               </li>
               <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift2orUSs12SequenceType_USs13GeneratorType_Ss11BooleanType__FQ_Sb">or(_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
+                <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
+                <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
               </li>
               <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift4scanUSs12SequenceType__USs13GeneratorType___FTQ_Q0_FTQ0_QQQ_9Generator7Element_Q0__GSaQ0__">scan(_:_:_:)</a>
@@ -142,6 +145,9 @@
               </li>
               <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift9takeWhileUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_FQQQ_9Generator7ElementPSs11BooleanType__GSaS6__">takeWhile(_:_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift5unionUSs12SequenceType_USs13GeneratorType_Ss9Equatable__FTQ_Q__GSaQQQ_9Generator7Element_">union(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -185,6 +191,8 @@
 <li><a href="#group-function">group function</a></li>
 <li><a href="#stripprefix-function">stripPrefix function</a></li>
 <li><a href="#distinct-function">distinct function</a></li>
+<li><a href="#union-function">union function</a></li>
+<li><a href="#intersect-function">intersect function</a></li>
 <li><a href="#equel-operator">equel operator</a></li>
 </ul></li>
 <li><a href="#special-element-sequencetype">Special element SequenceType</a>
@@ -280,6 +288,17 @@
 <pre class="highlight swift"><code><span class="c1">// returns array without duplicated elements
 </span><span class="nf">distinct</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// true
 </span><span class="nf">distinct</span><span class="p">(</span><span class="s">"bannana"</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s">"b"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"n"</span><span class="p">]</span> <span class="c1">// true
+</span></code></pre>
+<a href='#union_function' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='union_function'>union function</h3>
+<pre class="highlight swift"><code><span class="c1">// returns union without duplicated elements
+</span><span class="nf">union</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="c1">// true
+</span></code></pre>
+<a href='#intersect_function' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='intersect_function'>intersect function</h3>
+<pre class="highlight swift"><code><span class="c1">// returns intersection for two sequences
+</span><span class="nf">intersect</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="c1">// true
+</span>
+<span class="c1">// returns result which contains duplicate if first sequence does
+</span><span class="nf">intersect</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="c1">// true
 </span></code></pre>
 <a href='#equel_operator' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='equel_operator'>equel operator</h3>
 <pre class="highlight swift"><code><span class="c1">// check whether all elements equal in the same order
@@ -383,7 +402,7 @@
           </section>
         </section>
         <section id="footer">
-          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-24)</p>
+          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-25)</p>
           <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.0.20</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
