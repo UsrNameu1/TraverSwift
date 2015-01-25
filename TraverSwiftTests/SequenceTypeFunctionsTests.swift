@@ -41,7 +41,7 @@ class SequenceTypeFunctionsTests: XCTestCase {
     }
 
     func testIntersperseFunction() {
-        XCTAssert(intersperse("abcde", ",") == ["a",",","b",",","c",",","d",",","e"], "returns interspersed array")
+        XCTAssert(String(intersperse("abcde", ",")) == "a,b,c,d,e", "returns interspersed array")
     }
     
     func testSubsequenceFunction() {

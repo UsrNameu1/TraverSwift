@@ -58,6 +58,30 @@ public func distinct<S: SequenceType where S.Generator.Element: Equatable>(seque
 }
 
 /**
+Union of the two sequences in which duplicate elements are removed
+
+:param: sequence1 Sequence type
+:param: sequence2 Sequence type
+
+:returns: Union of the two sequences
+*/
+public func union<S: SequenceType where S.Generator.Element: Equatable>(sequence1: S, sequence2: S) -> [S.Generator.Element] {
+    return distinct(Array(sequence1) + Array(sequence2))
+}
+
+/**
+Intersection of the two sequences. If the first sequence contains duplicate, so will the return value
+
+:param: sequence1 Sequence type
+:param: sequence2 Sequence type
+
+:returns: Intersection of the two sequences
+*/
+public func intersect<S: SequenceType where S.Generator.Element: Equatable>(sequence1: S, sequence2: S) -> [S.Generator.Element] {
+    return filter(sequence1) { elem in contains(sequence2, elem) }
+}
+
+/**
 Equal operator for Sequence type
 
 :param: lhs left Sequence Type
