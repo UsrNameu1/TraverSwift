@@ -78,12 +78,6 @@
                 <a href="Functions.html#/s:F11TraverSwift4dropUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_QQ_5Index_GSaQQQ_9Generator7Element_">drop(_:_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift9dropFirstUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropFirst(_:)</a>
-              </li>
-              <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift8dropLastUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropLast(_:)</a>
-              </li>
-              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift9dropWhileUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_FQQQ_9Generator7ElementPSs11BooleanType__GSaS6__">dropWhile(_:_:)</a>
               </li>
               <li class="nav-chapter">
@@ -120,6 +114,9 @@
                 <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
               </li>
               <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift5rtailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">rtail(_:)</a>
+              </li>
+              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift4scanUSs12SequenceType__USs13GeneratorType___FTQ_Q0_FTQ0_QQQ_9Generator7Element_Q0__GSaQ0__">scan(_:_:_:)</a>
               </li>
               <li class="nav-chapter">
@@ -135,10 +132,13 @@
                 <a href="Functions.html#/s:F11TraverSwift12subsequencesUSs12SequenceType_USs13GeneratorType___FQ_GSaGSaQQQ_9Generator7Element__">subsequences(_:)</a>
               </li>
               <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
+              </li>
+              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
+                <a href="Functions.html#/s:F11TraverSwift4tailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">tail(_:)</a>
               </li>
               <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift4takeUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_QQ_5Index_GSaQQQ_9Generator7Element_">take(_:_:)</a>
@@ -1388,9 +1388,9 @@
                 <li class="item symbol">
                   <div class="task-group-term">
                     <code>
-                    <a name="/s:F11TraverSwift9dropFirstUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">
-                    <a name="//apple_ref/swift/Function/dropFirst(_:)" class="dashAnchor"></a>
-                    <a class="x-instance-method Swift" href="#/s:F11TraverSwift9dropFirstUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropFirst(_:)</a>
+                    <a name="/s:F11TraverSwift4tailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">
+                    <a name="//apple_ref/swift/Function/tail(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:F11TraverSwift4tailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">tail(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1405,7 +1405,7 @@
             
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">dropFirst</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt">CollectionType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">collection</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">C</span><span class="o">.</span><span class="kt">Generator</span><span class="o">.</span><span class="kt">Element</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">tail</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt">CollectionType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">collection</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">C</span><span class="o">.</span><span class="kt">Generator</span><span class="o">.</span><span class="kt">Element</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -1438,9 +1438,9 @@
                 <li class="item symbol">
                   <div class="task-group-term">
                     <code>
-                    <a name="/s:F11TraverSwift8dropLastUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">
-                    <a name="//apple_ref/swift/Function/dropLast(_:)" class="dashAnchor"></a>
-                    <a class="x-instance-method Swift" href="#/s:F11TraverSwift8dropLastUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropLast(_:)</a>
+                    <a name="/s:F11TraverSwift5rtailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">
+                    <a name="//apple_ref/swift/Function/rtail(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:F11TraverSwift5rtailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">rtail(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1455,7 +1455,7 @@
             
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">dropLast</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt">CollectionType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">collection</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">C</span><span class="o">.</span><span class="kt">Generator</span><span class="o">.</span><span class="kt">Element</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">rtail</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt">CollectionType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">collection</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">C</span><span class="o">.</span><span class="kt">Generator</span><span class="o">.</span><span class="kt">Element</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -2047,7 +2047,7 @@
           </section>
         </section>
         <section id="footer">
-          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-25)</p>
+          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-27)</p>
           <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.0.20</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

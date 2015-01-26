@@ -78,12 +78,6 @@
                 <a href="Functions.html#/s:F11TraverSwift4dropUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_QQ_5Index_GSaQQQ_9Generator7Element_">drop(_:_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift9dropFirstUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropFirst(_:)</a>
-              </li>
-              <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift8dropLastUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">dropLast(_:)</a>
-              </li>
-              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift9dropWhileUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_FQQQ_9Generator7ElementPSs11BooleanType__GSaS6__">dropWhile(_:_:)</a>
               </li>
               <li class="nav-chapter">
@@ -120,6 +114,9 @@
                 <a href="Functions.html#/s:F11TraverSwift7productUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">product(_:)</a>
               </li>
               <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift5rtailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">rtail(_:)</a>
+              </li>
+              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift4scanUSs12SequenceType__USs13GeneratorType___FTQ_Q0_FTQ0_QQQ_9Generator7Element_Q0__GSaQ0__">scan(_:_:_:)</a>
               </li>
               <li class="nav-chapter">
@@ -135,10 +132,13 @@
                 <a href="Functions.html#/s:F11TraverSwift12subsequencesUSs12SequenceType_USs13GeneratorType___FQ_GSaGSaQQQ_9Generator7Element__">subsequences(_:)</a>
               </li>
               <li class="nav-chapter">
+                <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
+              </li>
+              <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_S_22FloatingArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
               </li>
               <li class="nav-chapter">
-                <a href="Functions.html#/s:F11TraverSwift3sumUSs12SequenceType_USs13GeneratorType_Ss21IntegerArithmeticType__FQ_QQQ_9Generator7Element">sum(_:)</a>
+                <a href="Functions.html#/s:F11TraverSwift4tailUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FQ_GSaQQQ_9Generator7Element_">tail(_:)</a>
               </li>
               <li class="nav-chapter">
                 <a href="Functions.html#/s:F11TraverSwift4takeUSs14CollectionType_USs13GeneratorType__Ss16ForwardIndexType_Ss18_SignedIntegerType_Ss33_BuiltinIntegerLiteralConvertible____FTQ_QQ_5Index_GSaQQQ_9Generator7Element_">take(_:_:)</a>
@@ -206,7 +206,7 @@
 <ul>
 <li><a href="#findindex-function">findIndex function</a></li>
 <li><a href="#take--drop--split-function">take &amp; drop &amp; split function</a></li>
-<li><a href="#dropfirst--droplast-function">dropFirst &amp; dropLast function</a></li>
+<li><a href="#tail--rtail-function">tail &amp; rtail function</a></li>
 <li><a href="#takewhile--dropwhile--span-function">takeWhile &amp; dropWhile &amp; span function</a></li>
 <li><a href="#cast-function-for-collectiontype-wrapped-in-implicitly-unwrapped-optional">cast function</a></li>
 </ul></li>
@@ -352,13 +352,13 @@
 <span class="n">result1</span><span class="o">.</span><span class="mi">0</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// true
 </span><span class="n">result1</span><span class="o">.</span><span class="mi">1</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="c1">// true
 </span></code></pre>
-<a href='#dropfirst_amp_droplast_function' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='dropfirst_amp_droplast_function'>dropFirst &amp; dropLast function</h3>
+<a href='#tail_amp_rtail_function' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='tail_amp_rtail_function'>tail &amp; rtail function</h3>
 <pre class="highlight swift"><code><span class="c1">// get elements except first
 </span><span class="k">let</span> <span class="nv">col1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="nf">dropFirst</span><span class="p">(</span><span class="n">col1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="c1">// true
+<span class="nf">tail</span><span class="p">(</span><span class="n">col1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="c1">// true
 </span>
 <span class="c1">// get elements except last
-</span><span class="nf">dropLast</span><span class="p">(</span><span class="n">col1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">// true
+</span><span class="nf">rtail</span><span class="p">(</span><span class="n">col1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">// true
 </span></code></pre>
 <a href='#takewhile_amp_dropwhile_amp_span_function' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='takewhile_amp_dropwhile_amp_span_function'>takeWhile &amp; dropWhile &amp; span function</h3>
 <pre class="highlight swift"><code><span class="c1">// get the longest prefix in which elements all hold given condition
@@ -402,7 +402,7 @@
           </section>
         </section>
         <section id="footer">
-          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-25)</p>
+          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-01-27)</p>
           <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.0.20</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
