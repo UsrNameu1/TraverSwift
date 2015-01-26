@@ -27,7 +27,7 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 	- [General CollectionType](#general-collectiontype)
 		- [findIndex function](#findindex-function)
 		- [take & drop & split function](#take--drop--split-function)
-		- [dropFirst & dropLast function](#dropfirst--droplast-function)
+		- [tail & rtail function](#tail--rtail-function)
 		- [takeWhile & dropWhile & span function](#takewhile--dropwhile--span-function)
 		- [cast function](#cast-function-for-collectiontype-wrapped-in-implicitly-unwrapped-optional)
 	- [Array](#array)
@@ -221,15 +221,15 @@ result1.0 == [1, 2, 3] // true
 result1.1 == [4, 5, 6, 7] // true
 ```
     
-### dropFirst & dropLast function
+### tail & rtail function
 
 ```swift
 // get elements except first
 let col1 = [1, 2, 3, 4, 5, 6]
-dropFirst(col1) == [2, 3, 4, 5, 6] // true
+tail(col1) == [2, 3, 4, 5, 6] // true
 
 // get elements except last
-dropLast(col1) == [1, 2, 3, 4, 5] // true
+rtail(col1) == [1, 2, 3, 4, 5] // true
 ```
 
 ### takeWhile & dropWhile & span function

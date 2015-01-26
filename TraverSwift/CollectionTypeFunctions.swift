@@ -78,8 +78,8 @@ Extract the elements after the first of a collection
 
 :returns: Array of Collection Element Type
 */
-public func dropFirst<C: CollectionType>(collection: C) -> [C.Generator.Element] {
-    return drop(collection, collection.startIndex)
+public func tail<C: CollectionType>(collection: C) -> [C.Generator.Element] {
+    return Array(dropFirst(Array(collection)))
 }
 
 /**
@@ -89,8 +89,8 @@ All the elements of a collection except the last one
 
 :returns: Array of Collection Element Type
 */
-public func dropLast<C: CollectionType>(collection: C) -> [C.Generator.Element] {
-    return take(collection, advance(collection.startIndex, distance(collection.startIndex, collection.endIndex) - 1))
+public func rtail<C: CollectionType>(collection: C) -> [C.Generator.Element] {
+    return Array(dropLast(Array(collection)))
 }
 
 /**
