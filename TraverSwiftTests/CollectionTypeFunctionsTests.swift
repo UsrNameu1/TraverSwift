@@ -68,15 +68,15 @@ class CollectionTypeFunctionsTests: XCTestCase {
         XCTAssert(result1.1 == [4, 5, 6,  7], "get prefix elements properly at second element of tuple")
     }
     
-    func testDropFirstFunction() {
+    func testTailFunction() {
         let col1 = [1, 2, 3, 4, 5, 6]
-        let result1 = dropFirst(col1)
+        let result1 = tail(col1)
         XCTAssert(result1 == [2, 3, 4, 5, 6], "get elements except first properly")
     }
     
-    func testDropLastFunction() {
+    func testRtailFunction() {
         let col1 = [1, 2, 3, 4, 5, 6]
-        let result1 = dropLast(col1)
+        let result1 = rtail(col1)
         XCTAssert(result1 == [1, 2, 3, 4, 5], "get elements except last properly")
     }
 
