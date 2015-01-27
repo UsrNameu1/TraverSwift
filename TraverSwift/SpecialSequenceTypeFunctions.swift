@@ -100,4 +100,3 @@ A Bool indicating the existance for some element in sequence
 //public func existsAny<S: SequenceType, T where S.Generator.Element == Optional<T>>(sequence: S) -> Bool {
 //    return any(sequence) { (elem: Optional<T>) in elem != nil }
 //}
-

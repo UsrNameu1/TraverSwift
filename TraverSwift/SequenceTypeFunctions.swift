@@ -122,10 +122,84 @@ Takes a sequence and returns a array of array such that the concatenation of the
 public func groupBy<S: SequenceType>(sequence: S, condition: (S.Generator.Element , S.Generator.Element) -> Bool) -> [[S.Generator.Element]] {
     return reduce(sequence, []) { acc, elem in
         if let lastElem = acc.last?.last {
-            return condition(lastElem, elem) ? dropLast(acc) + [acc.last! + [elem]] : acc + [[elem]]
+            return condition(lastElem, elem) ? rtail(acc) + [acc.last! + [elem]] : acc + [[elem]]
         } else {
             return [[elem]]
         }
     }
 }// TODO: Modify condition return value for BooleanType (which currently causes runtime error)
 
+/**
+Extract the elements after the first of a sequence
+
+:param: sequence Sequence type
+
+:returns: Array of Sequence Element Type
+*/
+public func tail<S: SequenceType>(sequence: S) -> [S.Generator.Element] {
+    return Array(dropFirst(Array(sequence)))
+}
+
+/**
+All the elements of a sequence except the last one
+
+:param: sequence Sequence type
+
+:returns: Array of Sequence Element Type
+*/
+public func rtail<S: SequenceType>(sequence: S) -> [S.Generator.Element] {
+    return Array(dropLast(Array(sequence)))
+}
+
+/**
+Longest prefix of sequence type satisfying the condition
+
+:param: sequence    Sequence type
+:param: condition   condition for element
+
+:returns: Array of Sequence Element Type
+*/
+public func takeWhile<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> [S.Generator.Element] {
+    let array = Array(sequence)
+    let index = findIndex(array) { elem in !condition(elem).boolValue } ?? array.endIndex
+    return take(array, index)
+}
+
+/**
+Suffix of sequence type remaining after takeWhile
+
+:param: sequence    Sequence type
+:param: condition   condition for element
+
+:returns: Array of Sequence Element Type
+*/
+public func dropWhile<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> [S.Generator.Element] {
+    let array = Array(sequence)
+    let index = findIndex(array) { elem in !condition(elem).boolValue } ?? array.endIndex
+    return drop(array, index)
+}
+
+/**
+Tuple where first element is longest prefix of sequence type satisfying the condition and second element is the remainder of the list
+
+:param: sequence    Sequence type
+:param: condition   condition for element
+
+:returns: Tuple of Array of Sequence Element Type
+*/
+public func span<S: SequenceType>(sequence: S, condition: S.Generator.Element -> BooleanType) -> ([S.Generator.Element], [S.Generator.Element]) {
+    return (takeWhile(sequence, condition), dropWhile(sequence, condition))
+}
+
+/**
+A safe casted array for type U applied to Sequence Type
+
+:param: sequence   Sequence type (implicitly unwrapped optional)
+:param: forType    U Type to cast
+
+:returns: optional [U]
+*/
+public func cast<S: SequenceType, U>(sequence: S!, forType: U.Type) -> [U]? {
+    let safeCastedValues = map(sequence) { val in val as? U }
+    return existsAll(safeCastedValues) ? safeCastedValues.map { val in val! } : nil
+}

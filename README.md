@@ -14,6 +14,9 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 		- [scan function](#scan-function)
 		- [flatMap function](#flatmap-function)
 		- [groupBy function](#groupby-function)
+		- [tail & rtail function](#tail--rtail-function)
+		- [takeWhile & dropWhile & span function](#takewhile--dropwhile--span-function)
+		- [cast function](#cast-function-for-collectiontype-wrapped-in-implicitly-unwrapped-optional)
 	- [Equatable element SequenceType](#equatable-element-sequencetype)
 		- [group function](#group-function)
 		- [stripPrefix function](#stripprefix-function)
@@ -27,9 +30,6 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 	- [General CollectionType](#general-collectiontype)
 		- [findIndex function](#findindex-function)
 		- [take & drop & split function](#take--drop--split-function)
-		- [tail & rtail function](#tail--rtail-function)
-		- [takeWhile & dropWhile & span function](#takewhile--dropwhile--span-function)
-		- [cast function](#cast-function-for-collectiontype-wrapped-in-implicitly-unwrapped-optional)
 	- [Array](#array)
 		- [existsAny & existsAll function](#existsany--existsall-function-for-array-which-has-element-of-optionalt)
 		- [concat function for array of array](#concat-function-for-array-of-array)
@@ -102,6 +102,45 @@ let result3 = groupBy(seq2, <)
 result3 == [[5,6], [1,3,4,5,6,7,8,9,10]] // true
 let result4 = groupBy(seq2, >)
 result4 == [[5],[6,1],[3],[4],[5],[6],[7],[8],[9],[10]] // true
+```
+
+### tail & rtail function
+
+```swift
+// get elements except first
+let seq1 = SequenceOf([1, 2, 3, 4, 5, 6])
+tail(seq1) == [2, 3, 4, 5, 6] // true
+
+// get elements except last
+rtail(seq1) == [1, 2, 3, 4, 5] // true
+```
+
+### takeWhile & dropWhile & span function
+
+```swift
+// get the longest prefix in which elements all hold given condition
+let seq1 = [1,2,3,4,1,2,3,4]
+takeWhile(seq1) { elem in elem < 3 } == [1,2] // true
+
+// get the remaining of takeWhile
+dropWhile(seq1) { elem in elem < 3 } == [3,4,1,2,3,4] // true
+
+// get pair of takeWhile & dropWhile function
+let result1 = span(seq1) { elem in elem < 3 }
+result1.0 == [1, 2] // true
+result1.1 == [3,4,1,2,3,4] // true
+```
+  
+### cast function (for SequenceType wrapped in Implicitly unwrapped optional)
+   
+```swift
+// cast fail for compounded collection
+let objs: [NSObject]! = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+cast(objs, NSString.self) == nil // true
+
+// cast succceeds for pure collection
+let strs: [NSObject]! = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
+cast(strs, NSString.self) != nil // true
 ```
 
 ## Equatable element SequenceType
@@ -219,45 +258,6 @@ drop(col1, 0) == [1, 2, 3, 4, 5, 6, 7] // true
 let result1 = splitAt(col1, 3)
 result1.0 == [1, 2, 3] // true
 result1.1 == [4, 5, 6, 7] // true
-```
-    
-### tail & rtail function
-
-```swift
-// get elements except first
-let col1 = [1, 2, 3, 4, 5, 6]
-tail(col1) == [2, 3, 4, 5, 6] // true
-
-// get elements except last
-rtail(col1) == [1, 2, 3, 4, 5] // true
-```
-
-### takeWhile & dropWhile & span function
-
-```swift
-// get the longest prefix in which elements all hold given condition
-let col1 = [1,2,3,4,1,2,3,4]
-takeWhile(col1) { elem in elem < 3 } == [1,2] // true
-
-// get the remaining of takeWhile
-dropWhile(col1) { elem in elem < 3 } == [3,4,1,2,3,4] // true
-
-// get pair of takeWhile & dropWhile function
-let result1 = span(col1) { elem in elem < 3 }
-result1.0 == [1, 2] // true
-result1.1 == [3,4,1,2,3,4] // true
-```
-  
-### cast function (for CollectionType wrapped in Implicitly unwrapped optional)
-   
-```swift
-// cast fail for compounded collection
-let objs: [NSObject]! = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
-cast(objs, NSString.self) == nil // true
-
-// cast succceeds for pure collection
-let strs: [NSObject]! = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
-cast(strs, NSString.self) != nil // true
 ```
 
 ## Array
