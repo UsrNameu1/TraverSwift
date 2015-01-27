@@ -96,6 +96,18 @@ class SequenceTypeFunctionsTests: XCTestCase {
         XCTAssert(result1 == [1, 2, 3, 4, 5], "get elements except last properly")
     }
     
+    func testTailsFunction() {
+        let seq1 = SequenceOf([1,2,3,4])
+        let result1 = tails(seq1)
+        XCTAssert(result1 == [[1,2,3,4],[2,3,4],[3,4],[4],[]], "get all final segments properly")
+    }
+    
+    func testRtailsFunction() {
+        let seq1 = SequenceOf([1,2,3,4])
+        let result1 = rtails(seq1)
+        XCTAssert(result1 == [[],[1],[1,2],[1,2,3],[1,2,3,4]], "get all initial segments properly")
+    }
+    
     func testTakeWhileFunction() {
         let seq1 = SequenceOf([1,2,3,4,1,2,3,4])
         let result1 = takeWhile(seq1) { elem in elem < 3 }

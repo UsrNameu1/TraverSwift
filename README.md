@@ -15,6 +15,7 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 		- [flatMap function](#flatmap-function)
 		- [groupBy function](#groupby-function)
 		- [tail & rtail function](#tail--rtail-function)
+		- [tails & rtails function](#tails--rtails-function)
 		- [takeWhile & dropWhile & span function](#takewhile--dropwhile--span-function)
 		- [cast function](#cast-function-for-collectiontype-wrapped-in-implicitly-unwrapped-optional)
 	- [Equatable element SequenceType](#equatable-element-sequencetype)
@@ -113,6 +114,17 @@ tail(seq1) == [2, 3, 4, 5, 6] // true
 
 // get elements except last
 rtail(seq1) == [1, 2, 3, 4, 5] // true
+```
+
+### tails & rtails function
+
+```swift
+// get all final segments 
+let seq1 = SequenceOf([1, 2, 3, 4])
+tails(seq1) == [[1,2,3,4],[2,3,4],[3,4],[4],[]] // true
+
+// get all initial segments
+rtails(seq1) == [[],[1],[1,2],[1,2,3],[1,2,3,4]] // true
 ```
 
 ### takeWhile & dropWhile & span function

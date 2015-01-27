@@ -152,6 +152,36 @@ public func rtail<S: SequenceType>(sequence: S) -> [S.Generator.Element] {
 }
 
 /**
+All final segments of the argument, longest first
+
+:param: sequence Sequence type
+
+:returns: Array of array of Sequence Element Type
+*/
+public func tails<S: SequenceType>(sequence: S) -> [[S.Generator.Element]] {
+    let array = Array(sequence)
+    switch array.count {
+    case 0 : return [array]
+    default : return [array] + tails(tail(sequence))
+    }
+}
+
+/**
+All initial segments of the argument, shortest first
+
+:param: sequence Sequence type
+
+:returns: Array of array of Sequence Element Type
+*/
+public func rtails<S: SequenceType>(sequence: S) -> [[S.Generator.Element]] {
+    let array = Array(sequence)
+    switch array.count {
+    case 0 : return [array]
+    default : return rtails(rtail(sequence)) + [array]
+    }
+}
+
+/**
 Longest prefix of sequence type satisfying the condition
 
 :param: sequence    Sequence type
