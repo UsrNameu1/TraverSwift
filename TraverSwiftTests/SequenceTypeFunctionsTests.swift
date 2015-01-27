@@ -83,4 +83,59 @@ class SequenceTypeFunctionsTests: XCTestCase {
         let result4 = groupBy(seq2, >)
         XCTAssert(result4 == [[5],[6,1],[3],[4],[5],[6],[7],[8],[9],[10]], "returns array of array for seqence grouped by second condition")
     }
+    
+    func testTailFunction() {
+        let seq1 = SequenceOf([1, 2, 3, 4, 5, 6])
+        let result1 = tail(seq1)
+        XCTAssert(result1 == [2, 3, 4, 5, 6], "get elements except first properly")
+    }
+    
+    func testRtailFunction() {
+        let seq1 = SequenceOf([1, 2, 3, 4, 5, 6])
+        let result1 = rtail(seq1)
+        XCTAssert(result1 == [1, 2, 3, 4, 5], "get elements except last properly")
+    }
+    
+    func testTakeWhileFunction() {
+        let seq1 = SequenceOf([1,2,3,4,1,2,3,4])
+        let result1 = takeWhile(seq1) { elem in elem < 3 }
+        XCTAssert(result1 == [1, 2], "get the longest prefix elements properly")
+        
+        let seq2 = SequenceOf([1,2,3])
+        let result2 = takeWhile(seq2) { elem in elem < 9 }
+        XCTAssert(result2 == [1, 2, 3], "get the longest prefix elements properly")
+        
+        let result3 = takeWhile(seq2) { elem in elem < 0 }
+        XCTAssert(result3 == [], "get the longest prefix elements properly")
+    }
+    
+    func testDropWhileFunction() {
+        let seq1 = SequenceOf([1,2,3,4,1,2,3,4])
+        let result1 = dropWhile(seq1) { elem in elem < 3 }
+        XCTAssert(result1 == [3,4,1,2,3,4], "get the remaining of takeWhile properly")
+        
+        let seq2 = SequenceOf([1,2,3])
+        let result2 = dropWhile(seq2) { elem in elem < 9 }
+        XCTAssert(result2 == [], "get the remaining of takeWhile properly")
+        
+        let result3 = dropWhile(seq2) { elem in elem < 0 }
+        XCTAssert(result3 == [1, 2, 3], "get the remaining of takeWhile properly")
+    }
+    
+    func testSpanFunction() {
+        let seq1 = SequenceOf([1,2,3,4,1,2,3,4])
+        let result1 = span(seq1) { elem in elem < 3 }
+        XCTAssert(result1.0 == [1, 2], "first element is the longest prefix elements")
+        XCTAssert(result1.1 == [3,4,1,2,3,4], "second element is the remeining of the longest prefix elements")
+    }
+    
+    func testCastForTypeFunction() {
+        let objs: [NSObject]! = [NSString(string: "aaa"), NSNumber(int: 123), NSString(string: "ag")]
+        let failResult = cast(objs, NSString.self)
+        XCTAssert(failResult == nil, "Cast fail for compounded array")
+        
+        let strs: [NSObject]! = [NSString(string: "aaa"), NSString(), NSString(string: "ag")]
+        let successResult = cast(strs, NSString.self)
+        XCTAssert(successResult != nil, "Cast succeeds for pure array")
+    }
 }

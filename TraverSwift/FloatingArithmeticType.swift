@@ -85,4 +85,3 @@ extension Float: FloatingArithmeticType {}
 
 // This reports error like: 'Float80' is ambiguous for type lookup in this context
 //extension Float80: FloatingArithmeticType {}
-
