@@ -6,6 +6,7 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 
 # Table of Contents
 
+- [Installation](#installation)
 - [Gallery](#gallery)
 	- [General SequenceType](#general-sequencetype)
 		- [any & all function](#any--all-function)
@@ -36,6 +37,14 @@ A thin framework for swift's Collection effected by [Scala's Traversable](http:/
 		- [concat function for array of array](#concat-function-for-array-of-array)
 - [Documentation](#documentation)
 - [Licence](#licence)
+
+# Installation
+
+With [cocoapods](http://cocoapods.org/)
+
+```
+pod 'TraverSwift'
+```
 
 # Gallery
 
